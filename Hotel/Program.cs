@@ -20,9 +20,9 @@ namespace Hotel
         public static class Global
         {
             // Quang 
-            // public static string serverName = "(localdb)\\MSSQLLocalDB";
+            public static string serverName = "(localdb)\\MSSQLLocalDB";
             // Dung
-            public static string serverName = "DESKTOP-7TB6IV3";
+            //public static string serverName = "DESKTOP-7TB6IV3";
 
             public static bool isAuth = false;
             public static ManagerEntity manager = null;
