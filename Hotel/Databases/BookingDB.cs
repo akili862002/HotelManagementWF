@@ -1,5 +1,8 @@
 ﻿using Hotel.Entities;
+using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Hotel.Databases
 {
@@ -32,6 +35,16 @@ namespace Hotel.Databases
             cmd.Parameters.AddWithValue("@room_id", order.room_id);
             cmd.Parameters.AddWithValue("@customer_id", order.customer_id);
             cmd.Parameters.AddWithValue("@created_by", order.created_by);
+            return this.executeCommand(cmd);
+        }
+        public bool cancel(int booking_id)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = $@"
+                UPDATE [booking] SET is_cancel = @is_cancel
+                WHERE booking_id = {booking_id}
+            ";
+            cmd.Parameters.AddWithValue("@is_cancel", true);
             return this.executeCommand(cmd);
         }
 
@@ -76,6 +89,31 @@ namespace Hotel.Databases
                 ORDER BY [bill].created_at DESC
             ");
             return this.executeAdapterCommand(command);
+        }
+
+        public BookingEntity getById(int booking_id)
+        {
+            DataTable dt = new DataTable();
+
+            this.executeAdapterQuery($@"
+                SELECT booking_id, created_at, expire_at, key_code, room_id, customer_id FROM booking
+                WHERE booking_id = {booking_id}
+            ").Fill(dt);
+
+            if (dt.Rows.Count <= 0) return null;
+
+            DataRow row = dt.Rows[0];
+
+            BookingEntity booking = new BookingEntity() { 
+                booking_id = row.Field<int>(0),
+                created_at = DateTime.Parse(row.Field<object>(1).ToString()),
+                expire_at = DateTime.Parse(row.Field<object>(2).ToString()),
+                key_code = row.Field<string>(3),
+                room_id = row.Field<int>(4),
+                customer_id = row.Field<int>(5),
+            };
+
+            return booking;
         }
     }
 }

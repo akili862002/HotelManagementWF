@@ -24,13 +24,8 @@ namespace Hotel
             InitializeComponent();
             this.initRoomListView();
             infoLockPanel.Enabled = false;
-
-            this.fromDatePicker.Value = DateTime.Now;
-            this.fromTimePicker.Time = DateTime.Now;
-            this.toDatePicker.Value = DateTime.Now;
-            this.toTimePicker.Time = DateTime.Now;
-            this.toDatePicker.MinDate = DateTime.Now;
-
+            // this.autoUpdateTime();
+            this.initDateTime();
             this.resetValidation();
         }
 
@@ -40,10 +35,20 @@ namespace Hotel
             this.idEL.Hide();
             this.phoneEL.Hide();
         }
-        private void TablesForm_Load(object sender, EventArgs e)
+
+        private void initDateTime()
+        {
+            this.fromDatePicker.Value = DateTime.Now;
+            this.fromTimePicker.Time = DateTime.Now;
+            this.toDatePicker.Value = DateTime.Now;
+            this.toTimePicker.Time = DateTime.Now;
+            this.toDatePicker.MinDate = DateTime.Now;
+        }
+        private void autoUpdateTime()
         {
             fromDateTimer.Tick += new EventHandler((Object myObject, EventArgs myEventArgs) =>
             {
+                if (this.isEditCustomer) return;
                 this.fromDatePicker.Value = DateTime.Now;
                 this.fromTimePicker.Time = DateTime.Now;
             });
@@ -58,9 +63,9 @@ namespace Hotel
                 RoomDB db = new RoomDB();
                 DataTable dt = new DataTable();
                 db.getAllAdapter(@"
-                room.room_id as [ID],
-                room.[name] as [Tên bàn],
-                CASE WHEN booking.booking_id IS NULL THEN N'Trống' ELSE N'Có người' END as [Tình trạng]
+                    room.room_id as [ID],
+                    room.[name] as [Tên bàn],
+                    CASE WHEN booking.booking_id IS NULL THEN N'Trống' ELSE N'Có người' END as [Tình trạng]
             ").Fill(dt);
 
                 if (dt.Rows.Count <= 0) return;
@@ -83,20 +88,16 @@ namespace Hotel
         {
             this.initRoomListView();
             this.tableListView_SelectedIndexChanged(null, null);
-            this.updatePrice();
+            this.initEditBooking();
         }
 
         private void tableListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tableListView.SelectedIndices.Count <= 0)
-                return;
-
-            int intselectedindex = this.tableListView.SelectedIndices[0];
-            if (intselectedindex < 0)
+            if (this.tableListView.SelectedIndices.Count <= 0)
             {
-                this.currTableLabel.Text = "Chọn phòng để tiếp tục";
-                this.roomDescLabel.Text = "Nội dung";
-            };
+                return;
+            }
+            int intselectedindex = this.tableListView.SelectedIndices[0];
 
             string text = tableListView.Items[intselectedindex].Text;
             RoomDB db = new RoomDB();
@@ -106,7 +107,8 @@ namespace Hotel
                 room.[name] as [Tên bàn],
 				CASE WHEN booking.booking_id IS NULL THEN 0 ELSE 1 END as is_busy,
 				room.[desc],
-				room.room_id
+                room.price_per_hour,
+				booking.booking_id
             ").Fill(dt);
 
             if (dt.Rows.Count <= 0) return;
@@ -120,12 +122,13 @@ namespace Hotel
                         room_id = row.Field<int>(0),
                         name = row.Field<string>(1),
                         is_busy = row.Field<int>(2) == 1,
-                        desc = row.Field<string>(3)
+                        desc = row.Field<string>(3),
+                        price_per_hour = long.Parse(row.Field<long>(4).ToString())
                     };
 
                     if (this.roomSelected.is_busy)
                     {
-                        this.roomSelected.order_number = row.Field<int>(4);
+                        this.roomSelected.booking_id = row.Field<int>(5);
                     }
                     break;
                 }
@@ -133,33 +136,37 @@ namespace Hotel
 
             this.currTableLabel.Text = this.roomSelected.name;
             this.roomDescLabel.Text = this.roomSelected.desc;
-            this.updatePrice();
+            this.pricePerHoursLabel.Text = Currency.formatPrice(this.roomSelected.price_per_hour);
+            this.initEditBooking();
         }
 
-        private void updatePrice()
+        private void initEditBooking()
         {
             BookingDB db = new BookingDB();
 
-            if (this.roomSelected == null)
+            if (this.roomSelected == null || this.roomSelected?.booking_id <= 0)
             {
-                this.totalPriceLabel.Text = Currency.formatPrice(0);
+                this.totalPriceLabel.Text = "0";
                 return;
             }
 
-            int order_number = this.roomSelected.order_number;
+            int booking_id = this.roomSelected.booking_id;
 
-            if (order_number <= 0)
-            {
-                this.totalPriceLabel.Text = Currency.formatPrice(0);
+            BookingEntity booking = db.getById(booking_id);
+            if (booking == null)
                 return;
-            }
 
-            this.totalPriceLabel.Text = Currency.formatPrice(db.getTotalPriceOfOrder(this.roomSelected.order_number));
+            this.fromDatePicker.Value = booking.created_at;
+            this.fromTimePicker.Time = booking.created_at;
+            this.toDatePicker.Value = booking.expire_at;
+            this.toTimePicker.Time = booking.expire_at;
+
+            this.totalPriceLabel.Text = Currency.formatPrice(0);
         }
 
         private void checkoutButton_Click(object sender, EventArgs e)
         {
-            using (Checkout checkout = new Checkout(this.roomSelected.room_id, this.roomSelected.name, this.roomSelected.order_number))
+            using (Checkout checkout = new Checkout(this.roomSelected.room_id, this.roomSelected.name, this.roomSelected.booking_id))
             {
                 if (checkout.ShowDialog() == DialogResult.OK)
                 {
@@ -196,7 +203,8 @@ namespace Hotel
             if (this.isEditCustomer)
             {
                 customerDB.update(this.currCustomer.customer_id, customer);
-            } else
+            }
+            else
             {
                 int newId = customerDB.create(customer);
                 this.currCustomer = customer;
@@ -218,11 +226,18 @@ namespace Hotel
             db.create(booking);
 
             MessageBox.Show("Tạo phòng thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.initRoomListView();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show($"Bạn có chắc muốn hủy đơn này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.No) return;
 
+            BookingDB db = new BookingDB();
+            if (db.cancel(this.roomSelected.booking_id)) { 
+                MessageBox.Show("Hủy phòng thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            };
         }
 
         private void handleFindPhone()
@@ -306,6 +321,11 @@ namespace Hotel
         private void phoneTextBox_Leave(object sender, EventArgs e)
         {
             this.handleFindPhone();
+        }
+
+        private void tableListView_Click(object sender, EventArgs e)
+        {
+            this.tableListView_SelectedIndexChanged(null, null);
         }
     }
 }

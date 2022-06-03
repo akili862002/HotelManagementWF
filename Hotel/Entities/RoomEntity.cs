@@ -9,6 +9,6 @@
 
         // Abstract properties
         public bool is_busy;
-        public int order_number;
+        public int booking_id;
     }
 }

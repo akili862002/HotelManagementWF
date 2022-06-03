@@ -30,7 +30,6 @@ namespace Hotel.Databases
                     FROM {tableName} LEFT JOIN 
                     (
                         booking LEFT JOIN bill ON booking.booking_id = bill.booking_id
-                        JOIN order_item ON  booking.booking_id = [order_item].booking_id
                     )
                     ON room.room_id = booking.room_id AND bill.booking_id IS NULL
                     WHERE 1 = 1

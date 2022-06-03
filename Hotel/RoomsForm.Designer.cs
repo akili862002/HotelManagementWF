@@ -64,6 +64,8 @@ namespace Hotel
             this.findPhoneButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.picPicture = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
+            this.pricePerHoursLabel = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.fromTimePicker.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimePicker.Properties)).BeginInit();
             this.infoLockPanel.SuspendLayout();
@@ -110,6 +112,7 @@ namespace Hotel
             this.tableListView.TabIndex = 38;
             this.tableListView.UseCompatibleStateImageBehavior = false;
             this.tableListView.SelectedIndexChanged += new System.EventHandler(this.tableListView_SelectedIndexChanged);
+            this.tableListView.Click += new System.EventHandler(this.tableListView_Click);
             // 
             // currTableLabel
             // 
@@ -178,7 +181,7 @@ namespace Hotel
             // 
             this.roomDescLabel.AutoSize = true;
             this.roomDescLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomDescLabel.Location = new System.Drawing.Point(738, 133);
+            this.roomDescLabel.Location = new System.Drawing.Point(738, 136);
             this.roomDescLabel.Name = "roomDescLabel";
             this.roomDescLabel.Size = new System.Drawing.Size(116, 32);
             this.roomDescLabel.TabIndex = 56;
@@ -188,7 +191,7 @@ namespace Hotel
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(742, 193);
+            this.gunaLabel4.Location = new System.Drawing.Point(738, 218);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(184, 32);
             this.gunaLabel4.TabIndex = 56;
@@ -588,12 +591,36 @@ namespace Hotel
             this.picPicture.TabStop = false;
             this.picPicture.UseTransfarantBackground = false;
             // 
+            // gunaLabel12
+            // 
+            this.gunaLabel12.AutoSize = true;
+            this.gunaLabel12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel12.Location = new System.Drawing.Point(738, 173);
+            this.gunaLabel12.Name = "gunaLabel12";
+            this.gunaLabel12.Size = new System.Drawing.Size(138, 32);
+            this.gunaLabel12.TabIndex = 152;
+            this.gunaLabel12.Text = "Giá phòng: ";
+            // 
+            // pricePerHoursLabel
+            // 
+            this.pricePerHoursLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pricePerHoursLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pricePerHoursLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pricePerHoursLabel.Location = new System.Drawing.Point(867, 169);
+            this.pricePerHoursLabel.Name = "pricePerHoursLabel";
+            this.pricePerHoursLabel.Size = new System.Drawing.Size(447, 43);
+            this.pricePerHoursLabel.TabIndex = 153;
+            this.pricePerHoursLabel.Text = "0đ";
+            this.pricePerHoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // RoomsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1519, 1084);
+            this.Controls.Add(this.pricePerHoursLabel);
+            this.Controls.Add(this.gunaLabel12);
             this.Controls.Add(this.gunaLabel9);
             this.Controls.Add(this.findPhoneButton);
             this.Controls.Add(this.takePicButton);
@@ -623,7 +650,6 @@ namespace Hotel
             this.Name = "RoomsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "      ";
-            this.Load += new System.EventHandler(this.TablesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fromTimePicker.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimePicker.Properties)).EndInit();
             this.infoLockPanel.ResumeLayout(false);
@@ -669,5 +695,7 @@ namespace Hotel
         private Guna.UI.WinForms.GunaPanel infoLockPanel;
         private Guna.UI.WinForms.GunaButton findPhoneButton;
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
+        private Guna.UI.WinForms.GunaLabel gunaLabel12;
+        private Guna.UI.WinForms.GunaLabel pricePerHoursLabel;
     }
 }
