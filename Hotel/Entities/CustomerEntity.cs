@@ -8,6 +8,7 @@ namespace Hotel.Entities
         public string fullname;
         public string phone ;
         public string id_card;
+        public string pic;
         public DateTime created_at;
         public int created_by;
 

@@ -18,6 +18,7 @@ namespace Hotel
         RoomEntity roomSelected = new RoomEntity();
         bool isEditCustomer = false;
         CustomerEntity currCustomer = null;
+        BookingEntity currBooking = null;
 
         public RoomsForm()
         {
@@ -123,50 +124,80 @@ namespace Hotel
                         name = row.Field<string>(1),
                         is_busy = row.Field<int>(2) == 1,
                         desc = row.Field<string>(3),
-                        price_per_hour = long.Parse(row.Field<long>(4).ToString())
+                        price_per_hour = long.Parse(row.Field<long>(4).ToString()),
                     };
 
                     if (this.roomSelected.is_busy)
                     {
-                        this.roomSelected.booking_id = row.Field<int>(5);
+                        int booking_id = row.Field<int>(5);
+                        this.roomSelected.booking_id = booking_id;
+                        BookingDB bookingDB = new BookingDB();
+                        this.currBooking = bookingDB.getById(booking_id);
+                        CustomerDB cusDB = new CustomerDB();
+                        this.currCustomer = cusDB.getById(this.currBooking.customer_id);
                     }
                     break;
                 }
             }
 
-            this.currTableLabel.Text = this.roomSelected.name;
-            this.roomDescLabel.Text = this.roomSelected.desc;
-            this.pricePerHoursLabel.Text = Currency.formatPrice(this.roomSelected.price_per_hour);
             this.initEditBooking();
+
+            if (this.roomSelected.is_busy)
+            {
+                long pricePerHour = this.roomSelected.price_per_hour;
+                double totalSec = (currBooking.expire_at - currBooking.created_at).TotalMinutes;
+                double price = pricePerHour / 60 * totalSec;
+                this.totalPriceLabel.Text = Currency.formatPrice((long)Math.Round(price));
+            }
+            else
+            {
+                this.initCreateBooking();
+            }
+        }
+        private void initCreateBooking()
+        {
+            this.initDateTime();
+            this.resetValidation();
+            this.totalPriceLabel.Text = "NaN";
+            this.phoneTextBox.Text = "";
+            this.idTexBox.Text = "";
+            this.fullnameTextBox.Text = "";
+            this.picPicture.Image = this.picPicture.InitialImage;
+            this.deleteButton.Hide();
+            this.showQRCodeButton.Hide();
         }
 
         private void initEditBooking()
         {
-            BookingDB db = new BookingDB();
-
-            if (this.roomSelected == null || this.roomSelected?.booking_id <= 0)
-            {
-                this.totalPriceLabel.Text = "0";
-                return;
-            }
-
-            int booking_id = this.roomSelected.booking_id;
-
-            BookingEntity booking = db.getById(booking_id);
-            if (booking == null)
+            if (this.currBooking == null)
                 return;
 
-            this.fromDatePicker.Value = booking.created_at;
-            this.fromTimePicker.Time = booking.created_at;
-            this.toDatePicker.Value = booking.expire_at;
-            this.toTimePicker.Time = booking.expire_at;
-
+            this.fromDatePicker.Value = this.currBooking.created_at;
+            this.fromTimePicker.Time = this.currBooking.created_at;
+            this.toDatePicker.Value = this.currBooking.expire_at;
+            this.toTimePicker.Time = this.currBooking.expire_at;
+            this.currTableLabel.Text = this.roomSelected.name;
+            this.roomDescLabel.Text = this.roomSelected.desc;
+            this.pricePerHoursLabel.Text = Currency.formatPrice(this.roomSelected.price_per_hour);
             this.totalPriceLabel.Text = Currency.formatPrice(0);
+
+            // Customer
+            this.phoneTextBox.Text = this.currCustomer.phone;
+            this.idTexBox.Text = this.currCustomer.id_card;
+            this.fullnameTextBox.Text = this.currCustomer.fullname;
+            if (!string.IsNullOrEmpty(this.currCustomer.pic))
+                this.picPicture.Image = Helper.ConvertBase64ToImage(this.currCustomer.pic);
+            else
+                this.picPicture.Image = this.picPicture.InitialImage;
+                
+
+            this.deleteButton.Show();
+            this.showQRCodeButton.Show();
         }
 
         private void checkoutButton_Click(object sender, EventArgs e)
         {
-            using (Checkout checkout = new Checkout(this.roomSelected.room_id, this.roomSelected.name, this.roomSelected.booking_id))
+            using (Checkout checkout = new Checkout(this.currBooking.booking_id, this.roomSelected.name, this.roomSelected.price_per_hour))
             {
                 if (checkout.ShowDialog() == DialogResult.OK)
                 {
@@ -196,7 +227,8 @@ namespace Hotel
             {
                 fullname = this.fullnameTextBox.Text,
                 phone = this.phoneTextBox.Text,
-                id_card = this.idTexBox.Text
+                id_card = this.idTexBox.Text,
+                pic = Helper.ConvertImageToBase64(this.picPicture.Image),
             };
 
             CustomerDB customerDB = new CustomerDB();
@@ -228,7 +260,7 @@ namespace Hotel
             db.create(booking);
 
             MessageBox.Show("Tạo phòng thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            using (QRCodeForm qr = new QRCodeForm(key_code))
+            using (QRCodeForm qr = new QRCodeForm(key_code, $"Khóa mã phòng: {this.roomSelected.name}", "Vui lòng giữ cẩn thận, không để mất cắp!"))
             {
                 qr.ShowDialog();
             }
@@ -241,7 +273,8 @@ namespace Hotel
             if (res == DialogResult.No) return;
 
             BookingDB db = new BookingDB();
-            if (db.cancel(this.roomSelected.booking_id)) { 
+            if (db.cancel(this.roomSelected.booking_id))
+            {
                 MessageBox.Show("Hủy phòng thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             };
         }
@@ -273,10 +306,8 @@ namespace Hotel
 
         private void takePicButton_Click(object sender, EventArgs e)
         {
-
-
             TakePictureDialog takePic = new TakePictureDialog();
-            if (takePic.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (takePic.ShowDialog() == DialogResult.OK)
             {
                 Image pic = (takePic.Image);
                 this.picPicture.Image = HanldeImage.cropToRect(pic);
@@ -332,6 +363,21 @@ namespace Hotel
         private void tableListView_Click(object sender, EventArgs e)
         {
             this.tableListView_SelectedIndexChanged(null, null);
+        }
+
+        private void showQRCodeButton_Click(object sender, EventArgs e)
+        {
+            if (this.currBooking == null) return;
+
+            using (QRCodeForm qr = new QRCodeForm(this.currBooking.key_code, $"Khóa mã phòng: {this.roomSelected.name}", "Vui lòng giữ cẩn thận, không để mất cắp!"))
+            {
+                qr.ShowDialog();
+            }
+        }
+
+        private void RoomsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

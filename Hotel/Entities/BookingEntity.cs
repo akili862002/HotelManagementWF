@@ -13,6 +13,8 @@ namespace Hotel.Entities
         public int customer_id;
         public int created_by;
 
+        public RoomEntity room;
+
         public BookingEntity()
         {
             if (Program.Global.staff != null)

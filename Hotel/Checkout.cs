@@ -1,71 +1,64 @@
 ﻿using Hotel.Databases;
 using Hotel.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hotel
 {
     public partial class Checkout : Form
     {
-        int tableId;
-        int orderNumber;
-        long price;
-        public Checkout(int tableId, string tableName, int orderNumber)
+        BookingEntity booking;
+        long totalPrice;
+        long pricePerHours;
+
+        public Checkout(int booking_id, string roomName, long pricePerHours)
         {
             InitializeComponent();
-            this.tableId = tableId;
-            this.orderNumber = orderNumber;
 
-            this.titleLablel.Text = $"Thanh toán {tableName}";
-            this.orderLabel.Text = $"Đơn hàng #{orderNumber}";
-
-            this.loadTableOrderItems();
-            this.updatePrice();
-        }
-
-        private void loadTableOrderItems()
-        {
-            OrderItemDB db = new OrderItemDB();
-            DataTable dt = new DataTable();
-
-            db.getAllAdapterByRoom(this.tableId,
-               @"
-                product.name as [Tên món],
-                menu.menu_name as [Danh mục],
-                quantity as [Số lượng],
-                FORMAT(product.price, 'c', 'vi-VN') as [Đơn giá],
-                FORMAT(product.price * quantity , 'c', 'vi-VN')  as [Tổng giá] "
-               ).Fill(dt);
-            this.orderItemsTable.DataSource = dt;
-        }
-
-        private void updatePrice()
-        {
             BookingDB db = new BookingDB();
-            this.price = db.getTotalPriceOfOrder(this.orderNumber);
-            this.totalPriceLabel.Text = Currency.formatPrice(this.price);
+            booking = db.getById(booking_id);
+
+            this.titleLablel.Text = $"Thanh toán {roomName}";
+            this.orderLabel.Text = $"Mã thuê #{booking.booking_id}";
+            this.fromDateLabel.Text = booking.created_at.ToString();
+            this.toDateLabel.Text = booking.expire_at.ToString();
+            this.barcode.Text = booking.booking_id.ToString();
+
+            double totalSec = (booking.expire_at - booking.created_at).TotalMinutes;
+            this.totalPrice = (long)Math.Round(pricePerHours / 60 * totalSec);
+            this.totalPriceLabel.Text = Currency.formatPrice(this.totalPrice);
         }
 
         private void checkoutButton_Click(object sender, EventArgs e)
         {
             BillDB db = new BillDB();
-            BillEntity bill = new BillEntity();
-            bill
-                .setCustomerPay(this.price)
-                .setTotalPrice(this.price)
-                .setDescription(this.descTextBox.Text)
-                .setOrderNumber(this.orderNumber);
-            if (db.create(bill)) {
+            BillEntity bill = new BillEntity() { 
+                booking_id = this.booking.booking_id,
+                desc = this.descTextBox.Text,
+                total_price = this.totalPrice 
+            } ;
+            if (db.create(bill))
+            {
                 MessageBox.Show("Thanh toán thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
             };
+        }
+
+        private void Checkout_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            this.printPreviewDialog.Show();
+        }
+
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bm = new Bitmap(this.billPanel.Width, this.billPanel.Height);
+            this.billPanel.DrawToBitmap(bm, new Rectangle(0, 0, this.billPanel.Width, this.billPanel.Height));
+            e.Graphics.DrawImage(bm, 0, 0);
         }
     }
 }
