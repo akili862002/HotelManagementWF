@@ -74,7 +74,7 @@ namespace Hotel
             new Thread(() =>
             {
                 int totalCount = db.count();
-                this.gunaLabel6.Text = $"Danh sách nhân viên ({totalCount})";
+                this.gunaLabel6.Text = $"Danh sách Quản lí ({totalCount})";
             }).Start();
         }
         private void initCreateUser()
