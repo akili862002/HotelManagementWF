@@ -84,7 +84,6 @@ namespace Hotel
             this.Name = "QRCodeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QRCode";
-            this.Load += new System.EventHandler(this.QRCodeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).EndInit();
             this.ResumeLayout(false);
 
