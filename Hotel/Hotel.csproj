@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6E6952D4-B32B-4B0C-B242-EA3A51C59ED0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Hotel</RootNamespace>
+    <AssemblyName>Hotel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\..\Documents\Zalo Received Files\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddOrderItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrderItem.Designer.cs">
+      <DependentUpon>AddOrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Checkout.Designer.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Databases\AdminDB.cs" />
+    <Compile Include="Databases\BillDB.cs" />
+    <Compile Include="Databases\ConnectDB.cs" />
+    <Compile Include="Databases\StaffDB.cs" />
+    <Compile Include="Databases\BookingDB.cs" />
+    <Compile Include="Databases\ProductDB.cs" />
+    <Compile Include="Databases\OrderItem.cs" />
+    <Compile Include="Databases\ManagerDB.cs" />
+    <Compile Include="Databases\RoomDB.cs" />
+    <Compile Include="Entities\AdminEntity.cs" />
+    <Compile Include="Entities\BillEntity.cs" />
+    <Compile Include="Entities\StaffEntity.cs" />
+    <Compile Include="Entities\BookingEntity.cs" />
+    <Compile Include="Entities\OrderItemEntity.cs" />
+    <Compile Include="Entities\ProductEntity.cs" />
+    <Compile Include="Entities\RoomEntity.cs" />
+    <Compile Include="Entities\ManagerEntity.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers.Designer.cs">
+      <DependentUpon>Managers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenusForm.Designer.cs">
+      <DependentUpon>MenusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigationForm.Designer.cs">
+      <DependentUpon>NavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffsForm.Designer.cs">
+      <DependentUpon>StaffsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatisticForm.Designer.cs">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomsForm.Designer.cs">
+      <DependentUpon>RoomsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validation.cs" />
+    <EmbeddedResource Include="AddOrderItem.resx">
+      <DependentUpon>AddOrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Checkout.resx">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers.resx">
+      <DependentUpon>Managers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenusForm.resx">
+      <DependentUpon>MenusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationForm.resx">
+      <DependentUpon>NavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffsForm.resx">
+      <DependentUpon>StaffsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatisticForm.resx">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomsForm.resx">
+      <DependentUpon>RoomsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\coffee-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\cash-counter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\pieces-of-cutlery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\staffs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\statistic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\cleaning-staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\hotel-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\logo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\logo2-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\hotel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\qr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\room-key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\manager.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
