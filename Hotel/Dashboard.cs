@@ -73,7 +73,10 @@ namespace Hotel
 
         private void managerButton_Click(object sender, EventArgs e)
         {
-
+            using (ManagersForm managersForm = new ManagersForm())
+            {
+                managersForm.ShowDialog();
+            }
         }
     }
 }

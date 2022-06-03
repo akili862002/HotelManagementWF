@@ -411,7 +411,7 @@ namespace Hotel
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1725, 949);
+            this.ClientSize = new System.Drawing.Size(1725, 952);
             this.Controls.Add(this.managerButton);
             this.Controls.Add(this.gunaLabel11);
             this.Controls.Add(this.gunaGradient2Panel4);

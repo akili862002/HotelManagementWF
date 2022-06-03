@@ -1,7 +1,7 @@
 ﻿
 namespace Hotel
 {
-    partial class Managers
+    partial class ManagersForm
     {
         /// <summary>
         /// Required designer variable.
