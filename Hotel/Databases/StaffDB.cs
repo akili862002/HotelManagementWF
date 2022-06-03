@@ -33,7 +33,7 @@ namespace Hotel.Databases
         }
         public SqlDataAdapter getAllAdapter(string select = "*", string search = "")
         {
-            string query = $"SELECT {select} FROM {table} WHERE 1 = 1 AND fullname LIKE '%{search}%'";
+            string query = $"SELECT {select} FROM {table} WHERE 1 = 1 AND fullname LIKE N'%{search}%'";
             return this.executeAdapterQuery(query);
         }
 

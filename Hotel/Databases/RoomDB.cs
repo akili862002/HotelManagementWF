@@ -37,7 +37,7 @@ namespace Hotel.Databases
                 ";
             if (!string.IsNullOrEmpty(search))
             {
-                query += $" AND name LIKE '%{search}%'";
+                query += $" AND name LIKE N'%{search}%'";
             }
             return this.executeAdapterQuery(query);
         }

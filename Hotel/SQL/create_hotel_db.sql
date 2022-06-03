@@ -1,5 +1,5 @@
-﻿ --CREATE DATABASE Hotel
- --GO
+﻿CREATE DATABASE Hotel
+GO
 
 USE Hotel
 GO
@@ -29,6 +29,7 @@ CREATE TABLE [manager](
 	birthdate DATETIME NOT NULL,
 	gender VARCHAR(10) NOT NULL DEFAULT 'Nam',
 	[address] NVARCHAR(1000),
+	salary BIGINT NOT NULL,
 	created_at DATETIME DEFAULT GETDATE(),
 )
 GO
@@ -142,8 +143,9 @@ GO
 INSERT INTO [admin] (phone, [password]) VALUES ('0123456789', '123456')
 
 ------- Manager
-INSERT INTO manager (fullname, phone, password, birthdate, gender, address) VALUES (N'Triệu Hữu Khôi', '0123456788', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh')
-INSERT INTO manager (fullname, phone, password, birthdate, gender, address) VALUES (N'Nhâm Việt Hải', '0123456789', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh')
+INSERT INTO manager (fullname, phone, password, birthdate, gender, address, salary) VALUES (N'Triệu Hữu Khôi', '0123456788', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh','25000000')
+INSERT INTO manager (fullname, phone, password, birthdate, gender, address, salary) VALUES (N'Nhâm Việt Hải', '0123456789', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh','23000000')
+
 
 ------- Staff.Reception
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Nguyễn Văn A', '0000000001', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)

@@ -56,7 +56,8 @@ namespace Hotel
             this.searchButton.ForeColor = System.Drawing.Color.White;
             this.searchButton.Image = null;
             this.searchButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.searchButton.Location = new System.Drawing.Point(1385, 97);
+            this.searchButton.Location = new System.Drawing.Point(923, 63);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.searchButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -64,18 +65,20 @@ namespace Hotel
             this.searchButton.OnHoverImage = null;
             this.searchButton.OnPressedColor = System.Drawing.Color.Black;
             this.searchButton.Radius = 4;
-            this.searchButton.Size = new System.Drawing.Size(100, 48);
+            this.searchButton.Size = new System.Drawing.Size(67, 31);
             this.searchButton.TabIndex = 116;
             this.searchButton.Text = "Search";
             this.searchButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // gunaLabel6
             // 
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel6.Location = new System.Drawing.Point(18, 107);
+            this.gunaLabel6.Location = new System.Drawing.Point(12, 70);
+            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(269, 32);
+            this.gunaLabel6.Size = new System.Drawing.Size(182, 21);
             this.gunaLabel6.TabIndex = 114;
             this.gunaLabel6.Text = "Danh sách khách hàng";
             // 
@@ -116,15 +119,14 @@ namespace Hotel
             this.staffsTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.staffsTable.EnableHeadersVisualStyles = false;
             this.staffsTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.staffsTable.Location = new System.Drawing.Point(24, 170);
-            this.staffsTable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.staffsTable.Location = new System.Drawing.Point(16, 110);
             this.staffsTable.Name = "staffsTable";
             this.staffsTable.ReadOnly = true;
             this.staffsTable.RowHeadersVisible = false;
             this.staffsTable.RowHeadersWidth = 62;
             this.staffsTable.RowTemplate.Height = 28;
             this.staffsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.staffsTable.Size = new System.Drawing.Size(1461, 854);
+            this.staffsTable.Size = new System.Drawing.Size(974, 555);
             this.staffsTable.TabIndex = 113;
             this.staffsTable.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.staffsTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -172,40 +174,42 @@ namespace Hotel
             this.searchTextBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.searchTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.searchTextBox.Location = new System.Drawing.Point(1109, 97);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchTextBox.Location = new System.Drawing.Point(739, 63);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Padding = new System.Windows.Forms.Padding(8);
+            this.searchTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.Radius = 4;
             this.searchTextBox.SelectedText = "";
-            this.searchTextBox.Size = new System.Drawing.Size(268, 48);
+            this.searchTextBox.Size = new System.Drawing.Size(179, 31);
             this.searchTextBox.TabIndex = 115;
             // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(12, 9);
+            this.gunaLabel1.Location = new System.Drawing.Point(8, 6);
+            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(315, 70);
+            this.gunaLabel1.Size = new System.Drawing.Size(214, 47);
             this.gunaLabel1.TabIndex = 112;
             this.gunaLabel1.Text = "Khách hàng";
             // 
             // CustomersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1508, 1038);
+            this.ClientSize = new System.Drawing.Size(1005, 675);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.gunaLabel6);
             this.Controls.Add(this.staffsTable);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.gunaLabel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Customers";
+            this.Load += new System.EventHandler(this.CustomersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.staffsTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

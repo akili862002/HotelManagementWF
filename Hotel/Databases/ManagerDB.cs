@@ -36,7 +36,7 @@ namespace Hotel.Databases
         }
         public SqlDataAdapter getAllAdapter(string select = "*", string search = "")
         {
-            string query = $"SELECT {select} FROM {table} WHERE 1 = 1 AND fullname LIKE '%{search}%'";
+            string query = $"SELECT {select} FROM {table} WHERE 1 = 1 AND fullname LIKE N'%{search}%'";
             return this.executeAdapterQuery(query);
         }
 
@@ -47,7 +47,7 @@ namespace Hotel.Databases
 
         public bool delete(int id)
         {
-            return this.executeQuery($"DELETE FROM {table} WHERE id = {id}");
+            return this.executeQuery($"DELETE FROM {table} WHERE manager_id = {id}");
         }
         public int count()
         {
