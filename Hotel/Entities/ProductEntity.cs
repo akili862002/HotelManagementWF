@@ -15,9 +15,13 @@ namespace Hotel.Entities
 
         public ProductEntity()
         {
-            if (Program.Global.manager != null)
+            if (Program.Global.staff != null)
+                this.created_by = Program.Global.staff.staff_id;
+            else
+          if (Program.Global.manager != null)
                 this.created_by = Program.Global.manager.manager_id;
             else
+          if (Program.Global.admin != null)
                 this.created_by = Program.Global.admin.admin_id;
         }
     }
