@@ -29,9 +29,9 @@ namespace Hotel
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clearProductButton = new Guna.UI.WinForms.GunaButton();
             this.salaryEL = new Guna.UI.WinForms.GunaLabel();
             this.fullnameEL = new Guna.UI.WinForms.GunaLabel();
@@ -91,6 +91,7 @@ namespace Hotel
             this.clearProductButton.TabIndex = 168;
             this.clearProductButton.Text = "Clear";
             this.clearProductButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clearProductButton.Click += new System.EventHandler(this.clearProductButton_Click);
             // 
             // salaryEL
             // 
@@ -163,15 +164,16 @@ namespace Hotel
             this.passwordTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.passwordTextBox.Location = new System.Drawing.Point(17, 218);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.passwordTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.passwordTextBox.PasswordChar = '\0';
             this.passwordTextBox.Radius = 4;
             this.passwordTextBox.SelectedText = "";
             this.passwordTextBox.Size = new System.Drawing.Size(305, 32);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.Tag = "";
+            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
             // 
             // gunaLabel10
             // 
@@ -196,14 +198,17 @@ namespace Hotel
             this.phoneTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.phoneTextBox.Location = new System.Drawing.Point(17, 151);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.phoneTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.phoneTextBox.PasswordChar = '\0';
             this.phoneTextBox.Radius = 4;
             this.phoneTextBox.SelectedText = "";
             this.phoneTextBox.Size = new System.Drawing.Size(305, 32);
             this.phoneTextBox.TabIndex = 1;
+            this.phoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneTextBox_KeyPress);
+            this.phoneTextBox.Leave += new System.EventHandler(this.phoneTextBox_Leave);
+            this.phoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.phoneTextBox_Validating);
             // 
             // gunaLabel9
             // 
@@ -229,12 +234,13 @@ namespace Hotel
             this.salaryTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.salaryTextBox.Location = new System.Drawing.Point(16, 520);
             this.salaryTextBox.Name = "salaryTextBox";
-            this.salaryTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.salaryTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.salaryTextBox.PasswordChar = '\0';
             this.salaryTextBox.Radius = 4;
             this.salaryTextBox.SelectedText = "";
             this.salaryTextBox.Size = new System.Drawing.Size(306, 34);
             this.salaryTextBox.TabIndex = 8;
+            this.salaryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.salaryTextBox_Validating);
             // 
             // famaleRadio
             // 
@@ -312,7 +318,7 @@ namespace Hotel
             this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addressTextBox.Location = new System.Drawing.Point(17, 456);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.addressTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.addressTextBox.PasswordChar = '\0';
             this.addressTextBox.Radius = 4;
             this.addressTextBox.SelectedText = "";
@@ -367,12 +373,13 @@ namespace Hotel
             this.fullnameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fullnameTextBox.Location = new System.Drawing.Point(17, 283);
             this.fullnameTextBox.Name = "fullnameTextBox";
-            this.fullnameTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fullnameTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.fullnameTextBox.PasswordChar = '\0';
             this.fullnameTextBox.Radius = 4;
             this.fullnameTextBox.SelectedText = "";
             this.fullnameTextBox.Size = new System.Drawing.Size(306, 34);
             this.fullnameTextBox.TabIndex = 3;
+            this.fullnameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.fullnameTextBox_Validating);
             // 
             // searchButton
             // 
@@ -390,7 +397,7 @@ namespace Hotel
             this.searchButton.Image = null;
             this.searchButton.ImageSize = new System.Drawing.Size(20, 20);
             this.searchButton.Location = new System.Drawing.Point(1156, 92);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.searchButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -421,8 +428,8 @@ namespace Hotel
             this.staffsTable.AllowUserToAddRows = false;
             this.staffsTable.AllowUserToDeleteRows = false;
             this.staffsTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.staffsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.staffsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.staffsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -431,25 +438,25 @@ namespace Hotel
             this.staffsTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.staffsTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.staffsTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.staffsTable.ColumnHeadersHeight = 50;
             this.staffsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.avatar});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.staffsTable.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.staffsTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.staffsTable.EnableHeadersVisualStyles = false;
             this.staffsTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.staffsTable.Location = new System.Drawing.Point(340, 133);
@@ -483,6 +490,7 @@ namespace Hotel
             this.staffsTable.ThemeStyle.RowsStyle.Height = 28;
             this.staffsTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.staffsTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.staffsTable.Click += new System.EventHandler(this.staffsTable_Click);
             // 
             // avatar
             // 
@@ -509,7 +517,7 @@ namespace Hotel
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchTextBox.Location = new System.Drawing.Point(972, 92);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.searchTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.Radius = 4;
             this.searchTextBox.SelectedText = "";
@@ -553,6 +561,7 @@ namespace Hotel
             this.deleteButton.TabIndex = 149;
             this.deleteButton.Text = "Xóa";
             this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // submitButton
             // 
@@ -580,6 +589,7 @@ namespace Hotel
             this.submitButton.TabIndex = 148;
             this.submitButton.Text = "Sửa";
             this.submitButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // gunaLabel3
             // 
@@ -626,7 +636,7 @@ namespace Hotel
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.gunaLabel3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Managers";

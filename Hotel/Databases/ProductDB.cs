@@ -24,7 +24,7 @@ namespace Hotel.Databases
         {
             string query = $"SELECT {select} FROM {table} WHERE 1 = 1 ";
             if (!string.IsNullOrEmpty(search))
-                query += $"AND name LIKE '%{search}%' ";
+                query += $"AND name LIKE N'%{search}%' ";
             if (!string.IsNullOrEmpty(filterString))
                 query += filterString;
             return this.executeAdapterQuery(query);
