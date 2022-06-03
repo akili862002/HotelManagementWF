@@ -63,10 +63,26 @@
       <HintPath>..\..\..\..\..\Documents\Zalo Received Files\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp4.4.5.5.20211231\lib\netstandard2.0\OpenCvSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
@@ -104,6 +120,7 @@
     <Compile Include="Databases\AdminDB.cs" />
     <Compile Include="Databases\BillDB.cs" />
     <Compile Include="Databases\ConnectDB.cs" />
+    <Compile Include="Databases\CustomerDB.cs" />
     <Compile Include="Databases\StaffDB.cs" />
     <Compile Include="Databases\BookingDB.cs" />
     <Compile Include="Databases\ProductDB.cs" />
@@ -112,6 +129,7 @@
     <Compile Include="Databases\RoomDB.cs" />
     <Compile Include="Entities\AdminEntity.cs" />
     <Compile Include="Entities\BillEntity.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Entities\StaffEntity.cs" />
     <Compile Include="Entities\BookingEntity.cs" />
     <Compile Include="Entities\OrderItemEntity.cs" />
@@ -206,6 +224,7 @@
     <EmbeddedResource Include="RoomsForm.resx">
       <DependentUpon>RoomsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

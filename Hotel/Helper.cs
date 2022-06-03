@@ -120,4 +120,23 @@ namespace Hotel
             datePicker.CustomFormat = "MM/dd/yyyy";
         }
     }
+
+    internal class HanldeImage
+    {
+        public static Image cropToRect(Image img)
+        {
+            int size = img.Height;
+            Rectangle rect = new Rectangle(img.Width / 2 - size / 2, 0, size, size);
+            Bitmap OriginalImage = new Bitmap(img, img.Width, img.Height);
+            Bitmap _img = new Bitmap(size, size);
+            Graphics g = Graphics.FromImage(_img);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            g.DrawImage(OriginalImage, 0, 0, rect, GraphicsUnit.Pixel);
+
+            return _img;
+        }
+
+    }
 }

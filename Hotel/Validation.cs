@@ -78,6 +78,38 @@ namespace Hotel
             this.errorLabel.Text = "";
             this.errorLabel.Hide();
         }
+
+        public TextBoxValidation required()
+        {
+            if (string.IsNullOrEmpty(this.textBox.Text))
+            {
+                this.error("Vui lòng nhập ô này!");
+                return this;
+            }
+            this.normal();
+            return this;
+        }
+
+        public TextBoxValidation isPhone()
+        {
+            if (!Validation.IsPhoneNumber(this.textBox.Text))
+            {
+                this.error("Số ĐT không hợp lệ!");
+                return this;
+            }
+            this.normal();
+            return this;
+        }
+        public TextBoxValidation isEmail()
+        {
+            if (!Validation.IsEmail(this.textBox.Text))
+            {
+                this.error("Email không hợp lệ!");
+                return this;
+            }
+            this.normal();
+            return this;
+        }
     }
     class UpDownValidation
     {
