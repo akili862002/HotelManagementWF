@@ -7,7 +7,7 @@ namespace Hotel.Entities
         public int customer_id;
         public string fullname;
         public string phone ;
-        public string identity;
+        public string id_card;
         public DateTime created_at;
         public int created_by;
 

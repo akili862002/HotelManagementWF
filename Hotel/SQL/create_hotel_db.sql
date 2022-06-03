@@ -53,10 +53,10 @@ CREATE TABLE [customer](
 	customer_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	fullname NVARCHAR(255) NOT NULL,
 	phone VARCHAR(10) NOT NULL, CHECK( LEN(phone) = 10 ),
-	identify VARCHAR(20) NOT NULL,
+	id_card VARCHAR(20) NOT NULL,
 	pic VARCHAR(MAX),
-	created_by INT FOREIGN KEY REFERENCES [staff](staff_id),
-	created_at DATETIME DEFAULT GETDATE(), 
+	created_by INT,
+	created_at DATETIME DEFAULT GETDATE(),
 )
 GO
 
@@ -75,8 +75,9 @@ CREATE TABLE [booking](
 	expire_at DATETIME NOT NULL, 
 	key_code VARCHAR(255) NOT NULL,
 	room_id INT FOREIGN KEY REFERENCES [room](room_id),
+	is_canceled BIT DEFAULT 0,
 	customer_id INT FOREIGN KEY REFERENCES [customer](customer_id),
-	created_by INT FOREIGN KEY REFERENCES [staff](staff_id),
+	created_by INT,
 )
 GO
 
@@ -86,7 +87,7 @@ CREATE TABLE product(
 	price BIGINT NOT NULL,
 	stock INT NOT NULL, CHECK (stock >= 0),
 	unit NVARCHAR(30) NOT NULL,
-	created_by INT FOREIGN KEY REFERENCES [manager](manager_id) NOT NULL,
+	created_by INT,
 	created_at DATETIME DEFAULT GETDATE(),
 	updated_at DATETIME DEFAULT GETDATE()
 )
@@ -191,11 +192,11 @@ INSERT INTO product (name, price, stock, unit, created_by) VALUES (N'Trứng chi
 INSERT INTO product (name, price, stock, unit, created_by) VALUES (N'Thịt kho đậu hủ', 195000, 100, N'Đĩa', 1)
 
 ------ CUSTOMER
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'An Thế Anh', '1000000001', '0123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Thế Hữu Bảo', '1000000002', '1123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Khâu Vinh Diệu', '1000000003', '2123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Hà Thành Lợi', '1000000004', '3123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Chế Phúc Tâm', '1000000005', '4123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Kim Lâm Trường', '1000000006', '5123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Thạch Chí Thành', '1000000007', '6123456789', 1)
-INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Lãnh Bích Chiêu', '1000000008', '7123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'An Thế Anh', '1000000001', '0123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Thế Hữu Bảo', '1000000002', '1123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Khâu Vinh Diệu', '1000000003', '2123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Hà Thành Lợi', '1000000004', '3123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Chế Phúc Tâm', '1000000005', '4123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Kim Lâm Trường', '1000000006', '5123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Thạch Chí Thành', '1000000007', '6123456789', 1)
+INSERT INTO [customer] (fullname, phone, id_card, created_by) VALUES (N'Lãnh Bích Chiêu', '1000000008', '7123456789', 1)

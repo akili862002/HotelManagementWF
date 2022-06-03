@@ -78,5 +78,13 @@ namespace Hotel
                 managersForm.ShowDialog();
             }
         }
+
+        private void customersButton_Click(object sender, EventArgs e)
+        {
+            using (CustomersForm fm = new CustomersForm())
+            {
+                fm.ShowDialog();
+            }
+        }
     }
 }

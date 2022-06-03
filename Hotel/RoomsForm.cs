@@ -184,6 +184,26 @@ namespace Hotel
                 return;
             }
 
+            // First Create / Update Customer
+            CustomerEntity customer = new CustomerEntity()
+            {
+                fullname = this.fullnameTextBox.Text,
+                phone = this.phoneTextBox.Text,
+                id_card = this.idTexBox.Text
+            };
+
+            CustomerDB customerDB = new CustomerDB();
+            if (this.isEditCustomer)
+            {
+                customerDB.update(this.currCustomer.customer_id, customer);
+            } else
+            {
+                int newId = customerDB.create(customer);
+                this.currCustomer = customer;
+                this.currCustomer.customer_id = newId;
+                MessageBox.Show("Tạo khách hàng mới thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             BookingDB db = new BookingDB();
             Guid randId = Guid.NewGuid();
 
@@ -191,18 +211,19 @@ namespace Hotel
             {
                 expire_at = toDateTime,
                 room_id = this.roomSelected.room_id,
-                customer_id = 1,
+                customer_id = this.currCustomer.customer_id,
                 key_code = randId.ToString()
             };
 
             db.create(booking);
+
+            MessageBox.Show("Tạo phòng thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
 
         }
-
 
         private void handleFindPhone()
         {
@@ -211,14 +232,14 @@ namespace Hotel
 
             if (found == null)
             {
-                MessageBox.Show("This is new customer!");
                 this.isEditCustomer = false;
             }
             else
             {
                 this.fullnameTextBox.Text = found.fullname;
-                this.idTexBox.Text = found.identity;
+                this.idTexBox.Text = found.id_card;
                 this.isEditCustomer = true;
+                this.currCustomer = found;
             }
 
             this.infoLockPanel.Enabled = true;
@@ -281,5 +302,10 @@ namespace Hotel
             vali.justAllowNumber();
         }
         #endregion
+
+        private void phoneTextBox_Leave(object sender, EventArgs e)
+        {
+            this.handleFindPhone();
+        }
     }
 }

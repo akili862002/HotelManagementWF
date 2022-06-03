@@ -8,19 +8,21 @@ namespace Hotel.Databases
     {
         public string table = "[customer]";
 
-        public bool create(CustomerEntity cus)
+        public int create(CustomerEntity cus)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = $@"
-                    INSERT INTO {table} (fullname, phone, identify, created_by)
-                        values (@fullname, @phone, @identify, @created_by)";
+                    INSERT INTO {table} (fullname, phone, [id_card], created_by)
+                    OUTPUT INSERTED.customer_id 
+                    VALUES (@fullname, @phone, @id_card, @created_by)
+            ";
 
             command.Parameters.AddWithValue("@fullname", cus.fullname);
             command.Parameters.AddWithValue("@phone", cus.phone);
-            command.Parameters.AddWithValue("@identity", cus.identity);
+            command.Parameters.AddWithValue("@id_card", cus.id_card);
             command.Parameters.AddWithValue("@created_by", cus.created_by);
 
-            return this.executeCommand(command);
+            return this.executeCommandAndTakeReturn(command);
         }
         public bool isExistedPhone(string phone)
         {
@@ -50,21 +52,19 @@ namespace Hotel.Databases
                 UPDATE {table} SET
                     fullname = @fullname, 
                     phone = @phone, 
-                    fullname = @fullname,
-                    phone = @phone 
-                WHERE cus_id = {cus_id}";
+                    [id_card] = @id_card
+                WHERE customer_id = {cus_id}";
 
             command.Parameters.AddWithValue("@fullname", cus.fullname);
             command.Parameters.AddWithValue("@phone", cus.phone);
-            command.Parameters.AddWithValue("@identity", cus.identity);
-            command.Parameters.AddWithValue("@created_by", cus.created_by);
+            command.Parameters.AddWithValue("@id_card", cus.id_card);
             return this.executeCommand(command);
         }
 
         public CustomerEntity getByPhone(string phone)
         {
             DataTable dt = new DataTable();
-            this.executeAdapterQuery($"SELECT customer_id, fullname, phone, [identify] FROM {this.table} WHERE phone = '{phone}'").Fill(dt);
+            this.executeAdapterQuery($"SELECT customer_id, fullname, phone, [id_card] FROM {this.table} WHERE phone = '{phone}'").Fill(dt);
 
             if (dt.Rows.Count  <= 0) return null;
 
@@ -76,7 +76,7 @@ namespace Hotel.Databases
                 customer_id = row.Field<int>(0),
                 fullname = row.Field<string>(1),
                 phone = row.Field<string>(2),
-                identity = row.Field<string>(3),
+                id_card = row.Field<string>(3),
             };
             
             return cus;

@@ -62,8 +62,8 @@ namespace Hotel
             this.takePicButton = new Guna.UI.WinForms.GunaButton();
             this.infoLockPanel = new Guna.UI.WinForms.GunaPanel();
             this.findPhoneButton = new Guna.UI.WinForms.GunaButton();
-            this.picPicture = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
+            this.picPicture = new Guna.UI.WinForms.GunaCirclePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.fromTimePicker.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimePicker.Properties)).BeginInit();
             this.infoLockPanel.SuspendLayout();
@@ -375,6 +375,7 @@ namespace Hotel
             this.phoneTextBox.Size = new System.Drawing.Size(369, 50);
             this.phoneTextBox.TabIndex = 136;
             this.phoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneTextBox_KeyPress);
+            this.phoneTextBox.Leave += new System.EventHandler(this.phoneTextBox_Leave);
             this.phoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.phoneTextBox_Validating);
             // 
             // fullnameEL
@@ -481,7 +482,7 @@ namespace Hotel
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = null;
             this.deleteButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.deleteButton.Location = new System.Drawing.Point(1148, 844);
+            this.deleteButton.Location = new System.Drawing.Point(1129, 844);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -490,9 +491,9 @@ namespace Hotel
             this.deleteButton.OnHoverImage = null;
             this.deleteButton.OnPressedColor = System.Drawing.Color.Black;
             this.deleteButton.Radius = 4;
-            this.deleteButton.Size = new System.Drawing.Size(138, 49);
+            this.deleteButton.Size = new System.Drawing.Size(157, 49);
             this.deleteButton.TabIndex = 146;
-            this.deleteButton.Text = "Xóa";
+            this.deleteButton.Text = "Hủy phòng";
             this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -565,6 +566,16 @@ namespace Hotel
             this.findPhoneButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.findPhoneButton.Click += new System.EventHandler(this.findPhoneButton_Click);
             // 
+            // gunaLabel9
+            // 
+            this.gunaLabel9.AutoSize = true;
+            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel9.Location = new System.Drawing.Point(753, 504);
+            this.gunaLabel9.Name = "gunaLabel9";
+            this.gunaLabel9.Size = new System.Drawing.Size(49, 28);
+            this.gunaLabel9.TabIndex = 151;
+            this.gunaLabel9.Text = "Ảnh";
+            // 
             // picPicture
             // 
             this.picPicture.BaseColor = System.Drawing.Color.White;
@@ -576,16 +587,6 @@ namespace Hotel
             this.picPicture.TabIndex = 135;
             this.picPicture.TabStop = false;
             this.picPicture.UseTransfarantBackground = false;
-            // 
-            // gunaLabel9
-            // 
-            this.gunaLabel9.AutoSize = true;
-            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel9.Location = new System.Drawing.Point(753, 504);
-            this.gunaLabel9.Name = "gunaLabel9";
-            this.gunaLabel9.Size = new System.Drawing.Size(49, 28);
-            this.gunaLabel9.TabIndex = 151;
-            this.gunaLabel9.Text = "Ảnh";
             // 
             // RoomsForm
             // 

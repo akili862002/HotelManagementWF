@@ -7,9 +7,9 @@ namespace Hotel
 {
     class Validation
     {
-        public static bool IsPhoneNumber(string number)
+        public static bool IsPhoneNumber(string phone)
         {
-            return number.Length == 10;
+            return phone.Length == 10;
         }
         public static bool IsEmail(string email)
         {
@@ -55,6 +55,8 @@ namespace Hotel
         GunaTextBox textBox;
         GunaLabel errorLabel;
         bool useFocus;
+        bool stopVali = false;
+
         public TextBoxValidation(CancelEventArgs e, GunaTextBox textBox, GunaLabel errorLabel, bool useFocus = true)
         {
             this.e = e;
@@ -70,6 +72,7 @@ namespace Hotel
                 this.textBox.Focus();
             this.errorLabel.Text = message;
             this.errorLabel.Show();
+            this.stopVali = true;
         }
         public void normal()
         {
@@ -77,10 +80,13 @@ namespace Hotel
                 this.e.Cancel = false;
             this.errorLabel.Text = "";
             this.errorLabel.Hide();
+            this.stopVali = false;
         }
 
         public TextBoxValidation required()
         {
+            if (this.stopVali) return this;
+
             if (string.IsNullOrEmpty(this.textBox.Text))
             {
                 this.error("Vui lòng nhập ô này!");
@@ -92,6 +98,8 @@ namespace Hotel
 
         public TextBoxValidation isPhone()
         {
+            if (this.stopVali) return this;
+
             if (!Validation.IsPhoneNumber(this.textBox.Text))
             {
                 this.error("Số ĐT không hợp lệ!");
@@ -102,9 +110,35 @@ namespace Hotel
         }
         public TextBoxValidation isEmail()
         {
+            if (this.stopVali) return this;
+
             if (!Validation.IsEmail(this.textBox.Text))
             {
                 this.error("Email không hợp lệ!");
+                return this;
+            }
+            this.normal();
+            return this;
+        }
+        public TextBoxValidation minLength(int number)
+        {
+            if (this.stopVali) return this;
+
+            if (this.textBox.Text.Length < number)
+            {
+                this.error($"Quá ngắn!, ít nhất {number} kí tự!");
+                return this;
+            }
+            this.normal();
+            return this;
+        }
+        public TextBoxValidation maxLength(int number)
+        {
+            if (this.stopVali) return this;
+
+            if (this.textBox.Text.Length > number)
+            {
+                this.error($"Quá dài!, giới hạn {number} kí tự!");
                 return this;
             }
             this.normal();
