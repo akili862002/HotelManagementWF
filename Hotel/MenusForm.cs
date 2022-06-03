@@ -169,43 +169,23 @@ namespace Hotel
         private void prdNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBoxValidation vali = new TextBoxValidation(e, this.prdNameTextBox, this.prodNameEL);
-            if (string.IsNullOrEmpty(this.prdNameTextBox.Text))
-            {
-                vali.error("Vui lòng nhập ô này!");
-                return;
-            }
-            vali.normal();
+            vali.required();
         }
         private void prdUnitTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBoxValidation vali = new TextBoxValidation(e, this.prdUnitTextBox, this.prdUnitEL);
-            if (string.IsNullOrEmpty(this.prdUnitTextBox.Text))
-            {
-                vali.error("Vui lòng nhập ô này!");
-                return;
-            }
-            vali.normal();
+            vali.required();
         }
         private void prdStockTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
             TextBoxValidation vali = new TextBoxValidation(e, this.prdStockTextBox, this.prodStockEL);
-            if (string.IsNullOrEmpty(this.prdStockTextBox.Text))
-            {
-                vali.error("Vui lòng nhập ô này!");
-                return;
-            }
-            vali.normal();
-        }
+            vali.required();
+                  }
         private void prodPriceTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBoxValidation vali = new TextBoxValidation(e, this.prodPriceTextBox, this.prodPriceEL);
-            if (string.IsNullOrEmpty(this.prodPriceTextBox.Text))
-            {
-                vali.error("Vui lòng nhập ô này!");
-                return;
-            }
-            vali.normal();
+            vali.required();
         }
         private void prdStockTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {

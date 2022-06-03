@@ -5,30 +5,28 @@ namespace Hotel.Databases
 {
     class BookingDB : ConnectDB
     {
-        string table = "[order]";
-        public int create(BookingEntity order)
+        string table = "[booking]";
+        public int create(BookingEntity booking)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = $@"
-                INSERT INTO [booking] ([desc], expire_at, key_code, room_id, customer_id, created_by) OUTPUT INSERTED.booking_id 
-                    VALUES (@desc, @expire_at, @key_code, @room_id, @customer_id, @created_by)
+                INSERT INTO [booking] (expire_at, key_code, room_id, customer_id, created_by) OUTPUT INSERTED.booking_id 
+                    VALUES (@expire_at, @key_code, @room_id, @customer_id, @created_by)
             ";
-            cmd.Parameters.AddWithValue("@desc", order.desc);
-            cmd.Parameters.AddWithValue("@expire_at", order.expire_at);
-            cmd.Parameters.AddWithValue("@key_code", order.key_code);
-            cmd.Parameters.AddWithValue("@room_id", order.room_id);
-            cmd.Parameters.AddWithValue("@customer_id", order.customer_id);
-            cmd.Parameters.AddWithValue("@created_by", order.created_by);
+            cmd.Parameters.AddWithValue("@expire_at", booking.expire_at);
+            cmd.Parameters.AddWithValue("@key_code", booking.key_code);
+            cmd.Parameters.AddWithValue("@room_id", booking.room_id);
+            cmd.Parameters.AddWithValue("@customer_id", booking.customer_id);
+            cmd.Parameters.AddWithValue("@created_by", booking.created_by);
             return this.executeCommandAndTakeReturn(cmd);
         }
         public bool update(int booking_id, BookingEntity order)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = $@"
-                UPDATE [booking] SET [desc] = @desc, expire_at = @expire_at, key_code = @key_code, room_id = @room_id, customer_id = @customer_id, created_by = @created_by
+                UPDATE [booking] SET expire_at = @expire_at, key_code = @key_code, room_id = @room_id, customer_id = @customer_id, created_by = @created_by
                 WHERE booking_id = {booking_id}
             ";
-            cmd.Parameters.AddWithValue("@desc", order.desc);
             cmd.Parameters.AddWithValue("@expire_at", order.expire_at);
             cmd.Parameters.AddWithValue("@key_code", order.key_code);
             cmd.Parameters.AddWithValue("@room_id", order.room_id);

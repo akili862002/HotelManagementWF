@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hotel
@@ -15,6 +8,7 @@ namespace Hotel
         public NavigationForm()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.icon1;
         }
 
         private void loginButton_Click(object sender, EventArgs e)

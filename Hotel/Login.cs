@@ -98,34 +98,13 @@ namespace Hotel
         private void phoneTextBox_Validating(object sender, CancelEventArgs e)
         {
             TextBoxValidation vali = new TextBoxValidation(e, this.phoneTextBox, this.phoneEL);
-            if (string.IsNullOrEmpty(this.phoneTextBox.Text))
-            {
-                vali.error("Vui lòng nhập ô này!");
-                return;
-            }
-            if (!Validation.IsPhoneNumber(this.phoneTextBox.Text))
-            {
-                vali.error("SĐT không hợp lệ!");
-                return;
-            }
-            vali.normal();
+            vali.isPhone().required();
         }
 
         private void passwordTextBox_Validating(object sender, CancelEventArgs e)
         {
             TextBoxValidation vali = new TextBoxValidation(e, this.passwordTextBox, this.passwordEL);
-            string text = this.passwordTextBox.Text;
-            if (string.IsNullOrEmpty(text))
-            {
-                vali.error("Vui lòng nhập ô này!");
-                return;
-            }
-            if (text.Length < 6)
-            {
-                vali.error("MK phải ít nhất 6 kí tự!");
-                return;
-            }
-            vali.normal();
+            vali.minLength(6).required();
         }
 
         private void Login_Load(object sender, EventArgs e)

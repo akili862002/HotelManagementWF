@@ -53,6 +53,7 @@ namespace Hotel
             this.staffManagerButton = new Guna.UI.WinForms.GunaTileButton();
             this.menusButton = new Guna.UI.WinForms.GunaTileButton();
             this.tablesButton = new Guna.UI.WinForms.GunaTileButton();
+            this.customersButton = new Guna.UI.WinForms.GunaTileButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).BeginInit();
             this.gunaGradient2Panel1.SuspendLayout();
@@ -406,12 +407,41 @@ namespace Hotel
             this.tablesButton.Text = "Quản lý phòng";
             this.tablesButton.Click += new System.EventHandler(this.tablesButton_Click);
             // 
+            // customersButton
+            // 
+            this.customersButton.Animated = true;
+            this.customersButton.AnimationHoverSpeed = 0.07F;
+            this.customersButton.AnimationSpeed = 0.03F;
+            this.customersButton.BackColor = System.Drawing.Color.Transparent;
+            this.customersButton.BackgroundImage = global::Hotel.Properties.Resources.staffs2;
+            this.customersButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.customersButton.BorderColor = System.Drawing.Color.Black;
+            this.customersButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.customersButton.FocusedColor = System.Drawing.Color.Empty;
+            this.customersButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customersButton.ForeColor = System.Drawing.Color.White;
+            this.customersButton.Image = global::Hotel.Properties.Resources.customer;
+            this.customersButton.ImageSize = new System.Drawing.Size(52, 52);
+            this.customersButton.Location = new System.Drawing.Point(228, 957);
+            this.customersButton.Name = "customersButton";
+            this.customersButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.customersButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.customersButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.customersButton.OnHoverImage = null;
+            this.customersButton.OnPressedColor = System.Drawing.Color.Black;
+            this.customersButton.Radius = 4;
+            this.customersButton.Size = new System.Drawing.Size(394, 151);
+            this.customersButton.TabIndex = 32;
+            this.customersButton.Text = "Danh sách khách hàng";
+            this.customersButton.Click += new System.EventHandler(this.customersButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1725, 952);
+            this.ClientSize = new System.Drawing.Size(1725, 1131);
+            this.Controls.Add(this.customersButton);
             this.Controls.Add(this.managerButton);
             this.Controls.Add(this.gunaLabel11);
             this.Controls.Add(this.gunaGradient2Panel4);
@@ -468,5 +498,6 @@ namespace Hotel
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox5;
         private Guna.UI.WinForms.GunaPictureBox avatarPicture;
         private Guna.UI.WinForms.GunaTileButton managerButton;
+        private Guna.UI.WinForms.GunaTileButton customersButton;
     }
 }
