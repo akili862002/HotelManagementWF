@@ -52,8 +52,9 @@ GO
 CREATE TABLE [customer](
 	customer_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	fullname NVARCHAR(255) NOT NULL,
-	phone VARCHAR(10) NOT NULL  CHECK( LEN(phone) = 10 ),
-	gender VARCHAR(10) NOT NULL DEFAULT 'Nam',
+	phone VARCHAR(10) NOT NULL, CHECK( LEN(phone) = 10 ),
+	identify VARCHAR(20) NOT NULL,
+	pic VARCHAR(MAX),
 	created_by INT FOREIGN KEY REFERENCES [staff](staff_id),
 	created_at DATETIME DEFAULT GETDATE(), 
 )
@@ -144,13 +145,14 @@ INSERT INTO manager (fullname, phone, password, birthdate, gender, address, sala
 INSERT INTO manager (fullname, phone, password, birthdate, gender, address, salary) VALUES (N'Nhâm Việt Hải', '0123456789', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh','23000000')
 
 
-------- Reception
+------- Staff.Reception
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Nguyễn Văn A', '0000000001', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Lý Trường An', '0000000002', '123456', '2002-1-1', 'Nam', 'Quan 1, Ho Chi Minh', 8000000, 0, 1)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Thào Thúy Hà', '0000000003', '123456', '2002-1-1', N'Nữ', 'Quan 2, Ho Chi Minh', 8000000, 0, 1)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Dư Thùy Vân', '0000000004', '123456', '2002-1-1', N'Nữ', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)
+INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Admin test', '0123456789', '123456', '2002-1-1', N'Nữ', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)
 
-------- Labor
+------- Staff.Labor
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Thôi Diễm Khuê', '0000000005', '123456', '2002-1-1', N'Nữ', 'Quan 3, Ho Chi Minh', 8000000, 1, 0)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Ngọ Xuân Lan', '0000000006', '123456', '2002-1-1', N'Nữ', 'Quan 4, Ho Chi Minh', 8000000, 1, 0)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Quàng Hương Nhi', '0000000007', '123456', '2002-1-1', N'Nữ', 'Quan 5, Ho Chi Minh', 8000000, 1, 0)
@@ -189,11 +191,11 @@ INSERT INTO product (name, price, stock, unit, created_by) VALUES (N'Trứng chi
 INSERT INTO product (name, price, stock, unit, created_by) VALUES (N'Thịt kho đậu hủ', 195000, 100, N'Đĩa', 1)
 
 ------ CUSTOMER
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'An Thế Anh', '1000000001', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Thế Hữu Bảo', '1000000002', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Khâu Vinh Diệu', '1000000003', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Hà Thành Lợi', '1000000004', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Chế Phúc Tâm', '1000000005', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Kim Lâm Trường', '1000000006', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Thạch Chí Thành', '1000000007', 'Nam', 1)
-INSERT INTO [customer] (fullname, phone, gender, created_by) VALUES (N'Lãnh Bích Chiêu', '1000000008', 'Nữ', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'An Thế Anh', '1000000001', '0123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Thế Hữu Bảo', '1000000002', '1123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Khâu Vinh Diệu', '1000000003', '2123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Hà Thành Lợi', '1000000004', '3123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Chế Phúc Tâm', '1000000005', '4123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Kim Lâm Trường', '1000000006', '5123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Thạch Chí Thành', '1000000007', '6123456789', 1)
+INSERT INTO [customer] (fullname, phone, identify, created_by) VALUES (N'Lãnh Bích Chiêu', '1000000008', '7123456789', 1)

@@ -15,9 +15,9 @@ namespace Hotel
 
         private void tablesButton_Click(object sender, EventArgs e)
         {
-            using (RoomsForm tf = new RoomsForm())
+            using (RoomsForm roomForm = new RoomsForm())
             {
-                tf.ShowDialog();
+                roomForm.ShowDialog();
                 this.loadData();
             }
         }

@@ -1,8 +1,10 @@
-﻿using Hotel.Databases;
+﻿using DevExpress.XtraEditors.Camera;
+using Hotel.Databases;
 using Hotel.Entities;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Threading;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
@@ -14,6 +16,9 @@ namespace Hotel
     {
         public Timer fromDateTimer = new Timer();
         RoomEntity roomSelected = new RoomEntity();
+        bool isEditCustomer = false;
+        CustomerEntity currCustomer = null;
+
         public RoomsForm()
         {
             InitializeComponent();
@@ -25,6 +30,15 @@ namespace Hotel
             this.toDatePicker.Value = DateTime.Now;
             this.toTimePicker.Time = DateTime.Now;
             this.toDatePicker.MinDate = DateTime.Now;
+
+            this.resetValidation();
+        }
+
+        private void resetValidation()
+        {
+            this.fullnameEL.Hide();
+            this.idEL.Hide();
+            this.phoneEL.Hide();
         }
         private void TablesForm_Load(object sender, EventArgs e)
         {
@@ -153,14 +167,11 @@ namespace Hotel
                 }
             }
         }
-
-        private void toTimePicker_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = false;
-        }
-
         private void rentButton_Click(object sender, EventArgs e)
         {
+            if (!ValidateChildren(ValidationConstraints.Enabled))
+                return;
+
             DateTime fromDateTime = DateTime.Now;
 
             DateTime toDate = this.toDatePicker.Value;
@@ -187,5 +198,88 @@ namespace Hotel
             db.create(booking);
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void handleFindPhone()
+        {
+            CustomerDB db = new CustomerDB();
+            CustomerEntity found = db.getByPhone(this.phoneTextBox.Text);
+
+            if (found == null)
+            {
+                MessageBox.Show("This is new customer!");
+                this.isEditCustomer = false;
+            }
+            else
+            {
+                this.fullnameTextBox.Text = found.fullname;
+                this.idTexBox.Text = found.identity;
+                this.isEditCustomer = true;
+            }
+
+            this.infoLockPanel.Enabled = true;
+        }
+
+        private void findPhoneButton_Click(object sender, EventArgs e)
+        {
+            this.handleFindPhone();
+        }
+
+        private void takePicButton_Click(object sender, EventArgs e)
+        {
+
+
+            TakePictureDialog takePic = new TakePictureDialog();
+            if (takePic.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Image pic = (takePic.Image);
+                this.picPicture.Image = HanldeImage.cropToRect(pic);
+            }
+        }
+
+        private void fullnameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBoxValidation vali = new TextBoxValidation(e, this.fullnameTextBox, this.fullnameEL);
+            vali.required();
+        }
+
+        private void phoneTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBoxValidation vali = new TextBoxValidation(e, this.phoneTextBox, this.phoneEL);
+            vali.required().isPhone();
+        }
+
+        private void idTexBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBoxValidation vali = new TextBoxValidation(e, this.idTexBox, this.idEL);
+            vali.required();
+        }
+
+        #region Validate keypress
+        private void fullnameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateKeyPress vali = new ValidateKeyPress(sender, e);
+            vali.justAllowAlphabet();
+        }
+
+        private void idTexBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateKeyPress vali = new ValidateKeyPress(sender, e);
+            vali.justAllowNumber();
+        }
+        private void phoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                this.handleFindPhone();
+            }
+            ValidateKeyPress vali = new ValidateKeyPress(sender, e);
+            vali.justAllowNumber();
+        }
+        #endregion
     }
 }
