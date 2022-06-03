@@ -83,10 +83,10 @@ namespace Hotel.Databases
             SqlCommand command = new SqlCommand($@"
                 SELECT	
                     {selectString}
-                FROM booking
+                FROM [order_item]
+                JOIN booking ON order_item.booking_id = booking.booking_id
                 LEFT JOIN bill ON booking.booking_id = bill.booking_id
-                JOIN [user] ON [user].id = booking.booking_id
-                ORDER BY [bill].created_at DESC
+                ORDER BY [order_item].created_at DESC
             ");
             return this.executeAdapterCommand(command);
         }

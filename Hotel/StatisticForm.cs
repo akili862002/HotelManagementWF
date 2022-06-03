@@ -18,7 +18,7 @@ namespace Hotel
             InitializeComponent();
 
             this.loadProductChart();
-            this.loadStaffChart();
+            //this.loadStaffChart();
             this.loadOrderTable();
 
             this.orderToDatePicker.Value = DateTime.Now;
@@ -35,7 +35,7 @@ namespace Hotel
         {
             ProductDB db = new ProductDB();
             DataTable dt = new DataTable();
-            // db.getStatisticsAdapter().Fill(dt);
+            db.getStatisticsAdapter().Fill(dt);
             this.productChart.DataSource = dt;
             this.productChart.Series["Benefit"].YValueMembers = "Total price";
             this.productChart.Series["Benefit"].XValueMember = "name";
@@ -57,11 +57,9 @@ namespace Hotel
             DataTable dt = new DataTable();
             db.getAllOrdersAdapter(
                 @"
-                    [order].order_number as [Mã đơn],
-                    FORMAT(bill.total_price, 'c', 'vi-VN') as [Tổng tiền],
-                    [user].fullname as [Người bán],
-                    CASE WHEN bill.order_number IS NULL THEN N'Chưa tính tiền' ELSE N'Đã thanh toán' END AS [Tình trạng],
-                    [order].created_at as [Tạo lúc]
+                    order_item.order_item_id  as [Mã đơn],
+                    FORMAT(bill.total_price, 'c', 'vi-VN'),
+                    [order_item].created_at as [Tạo lúc]
                 "
                 ).Fill(dt);
             this.orderTable.DataSource = dt;
