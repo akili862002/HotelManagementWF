@@ -215,17 +215,23 @@ namespace Hotel
             BookingDB db = new BookingDB();
             Guid randId = Guid.NewGuid();
 
+            string key_code = randId.ToString();
+
             BookingEntity booking = new BookingEntity()
             {
                 expire_at = toDateTime,
                 room_id = this.roomSelected.room_id,
                 customer_id = this.currCustomer.customer_id,
-                key_code = randId.ToString()
+                key_code = key_code
             };
 
             db.create(booking);
 
             MessageBox.Show("Tạo phòng thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (QRCodeForm qr = new QRCodeForm(key_code))
+            {
+                qr.ShowDialog();
+            }
             this.initRoomListView();
         }
 

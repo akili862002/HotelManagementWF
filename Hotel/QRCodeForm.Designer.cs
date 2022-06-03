@@ -31,13 +31,14 @@ namespace Hotel
         {
             this.qrPic = new Guna.UI.WinForms.GunaPictureBox();
             this.loginButton = new Guna.UI.WinForms.GunaButton();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).BeginInit();
             this.SuspendLayout();
             // 
             // qrPic
             // 
             this.qrPic.BaseColor = System.Drawing.Color.White;
-            this.qrPic.Location = new System.Drawing.Point(107, 46);
+            this.qrPic.Location = new System.Drawing.Point(107, 162);
             this.qrPic.Name = "qrPic";
             this.qrPic.Size = new System.Drawing.Size(500, 500);
             this.qrPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -60,7 +61,7 @@ namespace Hotel
             this.loginButton.ForeColor = System.Drawing.Color.White;
             this.loginButton.Image = null;
             this.loginButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.loginButton.Location = new System.Drawing.Point(107, 591);
+            this.loginButton.Location = new System.Drawing.Point(107, 707);
             this.loginButton.Name = "loginButton";
             this.loginButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.loginButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -68,17 +69,28 @@ namespace Hotel
             this.loginButton.OnHoverImage = null;
             this.loginButton.OnPressedColor = System.Drawing.Color.Black;
             this.loginButton.Radius = 4;
-            this.loginButton.Size = new System.Drawing.Size(500, 50);
+            this.loginButton.Size = new System.Drawing.Size(501, 50);
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "In QR code";
             this.loginButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(178, 24);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(326, 70);
+            this.gunaLabel1.TabIndex = 22;
+            this.gunaLabel1.Text = "Khóa phòng";
             // 
             // QRCodeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(721, 668);
+            this.ClientSize = new System.Drawing.Size(722, 797);
+            this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.qrPic);
             this.Name = "QRCodeForm";
@@ -86,6 +98,7 @@ namespace Hotel
             this.Text = "QRCode";
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,5 +106,6 @@ namespace Hotel
 
         private Guna.UI.WinForms.GunaPictureBox qrPic;
         private Guna.UI.WinForms.GunaButton loginButton;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
     }
 }

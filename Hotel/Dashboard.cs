@@ -86,5 +86,13 @@ namespace Hotel
                 fm.ShowDialog();
             }
         }
+
+        private void statisticButton_Click_1(object sender, EventArgs e)
+        {
+            using (StatisticForm fm = new StatisticForm())
+            {
+                fm.ShowDialog();
+            }
+        }
     }
 }
