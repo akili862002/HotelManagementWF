@@ -12,14 +12,15 @@ namespace Hotel.Databases
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = $@"
-                    INSERT INTO {table} (fullname, phone, [id_card], created_by)
+                    INSERT INTO {table} (fullname, phone, [id_card], pic, created_by)
                     OUTPUT INSERTED.customer_id 
-                    VALUES (@fullname, @phone, @id_card, @created_by)
+                    VALUES (@fullname, @phone, @id_card, @pic, @created_by)
             ";
 
             command.Parameters.AddWithValue("@fullname", cus.fullname);
             command.Parameters.AddWithValue("@phone", cus.phone);
             command.Parameters.AddWithValue("@id_card", cus.id_card);
+            command.Parameters.AddWithValue("@pic", cus.pic);
             command.Parameters.AddWithValue("@created_by", cus.created_by);
 
             return this.executeCommandAndTakeReturn(command);
@@ -52,11 +53,13 @@ namespace Hotel.Databases
                 UPDATE {table} SET
                     fullname = @fullname, 
                     phone = @phone, 
+                    pic = @pic, 
                     [id_card] = @id_card
                 WHERE customer_id = {cus_id}";
 
             command.Parameters.AddWithValue("@fullname", cus.fullname);
             command.Parameters.AddWithValue("@phone", cus.phone);
+            command.Parameters.AddWithValue("@pic", cus.pic);
             command.Parameters.AddWithValue("@id_card", cus.id_card);
             return this.executeCommand(command);
         }
@@ -64,7 +67,7 @@ namespace Hotel.Databases
         public CustomerEntity getByPhone(string phone)
         {
             DataTable dt = new DataTable();
-            this.executeAdapterQuery($"SELECT customer_id, fullname, phone, [id_card] FROM {this.table} WHERE phone = '{phone}'").Fill(dt);
+            this.executeAdapterQuery($"SELECT customer_id, fullname, phone, [id_card], pic FROM {this.table} WHERE phone = '{phone}'").Fill(dt);
 
             if (dt.Rows.Count  <= 0) return null;
 
@@ -77,8 +80,31 @@ namespace Hotel.Databases
                 fullname = row.Field<string>(1),
                 phone = row.Field<string>(2),
                 id_card = row.Field<string>(3),
+                pic = row.Field<string>(4),
             };
             
+            return cus;
+        }
+
+        public CustomerEntity getById(int customer_id)
+        {
+            DataTable dt = new DataTable();
+            this.executeAdapterQuery($"SELECT customer_id, fullname, phone, [id_card], pic FROM {this.table} WHERE customer_id = {customer_id}").Fill(dt);
+
+            if (dt.Rows.Count <= 0) return null;
+
+            DataRow row = dt.Rows[0];
+
+
+            CustomerEntity cus = new CustomerEntity()
+            {
+                customer_id = row.Field<int>(0),
+                fullname = row.Field<string>(1),
+                phone = row.Field<string>(2),
+                id_card = row.Field<string>(3),
+                pic = row.Field<string>(4),
+            };
+
             return cus;
         }
 
