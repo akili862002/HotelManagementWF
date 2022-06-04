@@ -63,9 +63,10 @@ namespace Hotel
             this.infoLockPanel = new Guna.UI.WinForms.GunaPanel();
             this.findPhoneButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
-            this.picPicture = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
             this.pricePerHoursLabel = new Guna.UI.WinForms.GunaLabel();
+            this.showQRCodeButton = new Guna.UI.WinForms.GunaButton();
+            this.picPicture = new Guna.UI.WinForms.GunaPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.fromTimePicker.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimePicker.Properties)).BeginInit();
             this.infoLockPanel.SuspendLayout();
@@ -76,9 +77,10 @@ namespace Hotel
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(12, 9);
+            this.gunaLabel1.Location = new System.Drawing.Point(8, 6);
+            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(388, 70);
+            this.gunaLabel1.Size = new System.Drawing.Size(264, 47);
             this.gunaLabel1.TabIndex = 21;
             this.gunaLabel1.Text = "Quản lý phòng";
             // 
@@ -93,9 +95,10 @@ namespace Hotel
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(20, 118);
+            this.gunaLabel2.Location = new System.Drawing.Point(13, 77);
+            this.gunaLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(93, 32);
+            this.gunaLabel2.Size = new System.Drawing.Size(62, 21);
             this.gunaLabel2.TabIndex = 37;
             this.gunaLabel2.Text = "Bàn ăn";
             // 
@@ -106,9 +109,10 @@ namespace Hotel
             this.tableListView.BackColor = System.Drawing.Color.White;
             this.tableListView.HideSelection = false;
             this.tableListView.LargeImageList = this.imageList;
-            this.tableListView.Location = new System.Drawing.Point(24, 158);
+            this.tableListView.Location = new System.Drawing.Point(16, 103);
+            this.tableListView.Margin = new System.Windows.Forms.Padding(2);
             this.tableListView.Name = "tableListView";
-            this.tableListView.Size = new System.Drawing.Size(678, 902);
+            this.tableListView.Size = new System.Drawing.Size(453, 576);
             this.tableListView.TabIndex = 38;
             this.tableListView.UseCompatibleStateImageBehavior = false;
             this.tableListView.SelectedIndexChanged += new System.EventHandler(this.tableListView_SelectedIndexChanged);
@@ -118,9 +122,10 @@ namespace Hotel
             // 
             this.currTableLabel.AutoSize = true;
             this.currTableLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currTableLabel.Location = new System.Drawing.Point(732, 85);
+            this.currTableLabel.Location = new System.Drawing.Point(488, 55);
+            this.currTableLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currTableLabel.Name = "currTableLabel";
-            this.currTableLabel.Size = new System.Drawing.Size(418, 48);
+            this.currTableLabel.Size = new System.Drawing.Size(284, 32);
             this.currTableLabel.TabIndex = 40;
             this.currTableLabel.Text = "Chọn phòng để tiếp tục";
             // 
@@ -129,9 +134,10 @@ namespace Hotel
             this.gunaLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.Location = new System.Drawing.Point(886, 1024);
+            this.gunaLabel3.Location = new System.Drawing.Point(534, 647);
+            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(202, 48);
+            this.gunaLabel3.Size = new System.Drawing.Size(139, 32);
             this.gunaLabel3.TabIndex = 42;
             this.gunaLabel3.Text = "Tổng tiền: ";
             // 
@@ -141,9 +147,10 @@ namespace Hotel
             this.totalPriceLabel.AutoSize = true;
             this.totalPriceLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.totalPriceLabel.Location = new System.Drawing.Point(1095, 1024);
+            this.totalPriceLabel.Location = new System.Drawing.Point(677, 647);
+            this.totalPriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalPriceLabel.Name = "totalPriceLabel";
-            this.totalPriceLabel.Size = new System.Drawing.Size(64, 48);
+            this.totalPriceLabel.Size = new System.Drawing.Size(44, 32);
             this.totalPriceLabel.TabIndex = 43;
             this.totalPriceLabel.Text = "0đ";
             this.totalPriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,7 +170,8 @@ namespace Hotel
             this.checkoutButton.ForeColor = System.Drawing.Color.White;
             this.checkoutButton.Image = null;
             this.checkoutButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.checkoutButton.Location = new System.Drawing.Point(1298, 1011);
+            this.checkoutButton.Location = new System.Drawing.Point(866, 639);
+            this.checkoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.checkoutButton.Name = "checkoutButton";
             this.checkoutButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.checkoutButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -171,7 +179,7 @@ namespace Hotel
             this.checkoutButton.OnHoverImage = null;
             this.checkoutButton.OnPressedColor = System.Drawing.Color.Black;
             this.checkoutButton.Radius = 4;
-            this.checkoutButton.Size = new System.Drawing.Size(186, 61);
+            this.checkoutButton.Size = new System.Drawing.Size(124, 40);
             this.checkoutButton.TabIndex = 44;
             this.checkoutButton.Text = "Thanh toán";
             this.checkoutButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -181,9 +189,10 @@ namespace Hotel
             // 
             this.roomDescLabel.AutoSize = true;
             this.roomDescLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomDescLabel.Location = new System.Drawing.Point(738, 136);
+            this.roomDescLabel.Location = new System.Drawing.Point(492, 88);
+            this.roomDescLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.roomDescLabel.Name = "roomDescLabel";
-            this.roomDescLabel.Size = new System.Drawing.Size(116, 32);
+            this.roomDescLabel.Size = new System.Drawing.Size(75, 21);
             this.roomDescLabel.TabIndex = 56;
             this.roomDescLabel.Text = "Nội dung";
             // 
@@ -191,9 +200,10 @@ namespace Hotel
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(738, 218);
+            this.gunaLabel4.Location = new System.Drawing.Point(492, 142);
+            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(184, 32);
+            this.gunaLabel4.Size = new System.Drawing.Size(123, 21);
             this.gunaLabel4.TabIndex = 56;
             this.gunaLabel4.Text = "Thông tin thuê";
             // 
@@ -210,8 +220,7 @@ namespace Hotel
             this.fromDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fromDatePicker.ForeColor = System.Drawing.Color.Black;
             this.fromDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fromDatePicker.Location = new System.Drawing.Point(752, 281);
-            this.fromDatePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fromDatePicker.Location = new System.Drawing.Point(501, 183);
             this.fromDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.fromDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.fromDatePicker.Name = "fromDatePicker";
@@ -220,7 +229,7 @@ namespace Hotel
             this.fromDatePicker.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.fromDatePicker.OnPressedColor = System.Drawing.Color.Black;
             this.fromDatePicker.Radius = 4;
-            this.fromDatePicker.Size = new System.Drawing.Size(504, 49);
+            this.fromDatePicker.Size = new System.Drawing.Size(336, 32);
             this.fromDatePicker.TabIndex = 123;
             this.fromDatePicker.Text = "5/17/2022";
             this.fromDatePicker.Value = new System.DateTime(2022, 5, 17, 14, 30, 22, 650);
@@ -229,9 +238,10 @@ namespace Hotel
             // 
             this.gunaLabel5.AutoSize = true;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel5.Location = new System.Drawing.Point(750, 250);
+            this.gunaLabel5.Location = new System.Drawing.Point(500, 162);
+            this.gunaLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(107, 28);
+            this.gunaLabel5.Size = new System.Drawing.Size(74, 19);
             this.gunaLabel5.TabIndex = 124;
             this.gunaLabel5.Text = "Ngày thuê";
             // 
@@ -239,9 +249,10 @@ namespace Hotel
             // 
             this.gunaLabel7.AutoSize = true;
             this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel7.Location = new System.Drawing.Point(753, 337);
+            this.gunaLabel7.Location = new System.Drawing.Point(502, 219);
+            this.gunaLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(149, 28);
+            this.gunaLabel7.Size = new System.Drawing.Size(102, 19);
             this.gunaLabel7.TabIndex = 126;
             this.gunaLabel7.Text = "Thuê đến ngày";
             // 
@@ -257,8 +268,7 @@ namespace Hotel
             this.toDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toDatePicker.ForeColor = System.Drawing.Color.Black;
             this.toDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.toDatePicker.Location = new System.Drawing.Point(755, 370);
-            this.toDatePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.toDatePicker.Location = new System.Drawing.Point(503, 240);
             this.toDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.toDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.toDatePicker.Name = "toDatePicker";
@@ -267,7 +277,7 @@ namespace Hotel
             this.toDatePicker.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.toDatePicker.OnPressedColor = System.Drawing.Color.Black;
             this.toDatePicker.Radius = 4;
-            this.toDatePicker.Size = new System.Drawing.Size(501, 49);
+            this.toDatePicker.Size = new System.Drawing.Size(334, 32);
             this.toDatePicker.TabIndex = 128;
             this.toDatePicker.Text = "5/17/2022";
             this.toDatePicker.Value = new System.DateTime(2022, 5, 17, 14, 30, 22, 650);
@@ -286,7 +296,8 @@ namespace Hotel
             this.rentButton.ForeColor = System.Drawing.Color.White;
             this.rentButton.Image = null;
             this.rentButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.rentButton.Location = new System.Drawing.Point(1293, 844);
+            this.rentButton.Location = new System.Drawing.Point(862, 549);
+            this.rentButton.Margin = new System.Windows.Forms.Padding(2);
             this.rentButton.Name = "rentButton";
             this.rentButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.rentButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -294,7 +305,7 @@ namespace Hotel
             this.rentButton.OnHoverImage = null;
             this.rentButton.OnPressedColor = System.Drawing.Color.Black;
             this.rentButton.Radius = 4;
-            this.rentButton.Size = new System.Drawing.Size(191, 49);
+            this.rentButton.Size = new System.Drawing.Size(127, 32);
             this.rentButton.TabIndex = 56;
             this.rentButton.Text = "Thuê phòng";
             this.rentButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -304,34 +315,35 @@ namespace Hotel
             // 
             this.fromTimePicker.EditValue = new System.DateTime(2022, 6, 2, 0, 0, 0, 0);
             this.fromTimePicker.Enabled = false;
-            this.fromTimePicker.Location = new System.Drawing.Point(1269, 278);
-            this.fromTimePicker.Margin = new System.Windows.Forms.Padding(6);
+            this.fromTimePicker.Location = new System.Drawing.Point(846, 181);
+            this.fromTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.fromTimePicker.Name = "fromTimePicker";
             this.fromTimePicker.Properties.AutoHeight = false;
             this.fromTimePicker.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.fromTimePicker.Size = new System.Drawing.Size(215, 52);
+            this.fromTimePicker.Size = new System.Drawing.Size(143, 34);
             this.fromTimePicker.TabIndex = 131;
             // 
             // toTimePicker
             // 
             this.toTimePicker.EditValue = new System.DateTime(2022, 6, 2, 0, 0, 0, 0);
-            this.toTimePicker.Location = new System.Drawing.Point(1269, 370);
-            this.toTimePicker.Margin = new System.Windows.Forms.Padding(9);
+            this.toTimePicker.Location = new System.Drawing.Point(846, 240);
+            this.toTimePicker.Margin = new System.Windows.Forms.Padding(6);
             this.toTimePicker.Name = "toTimePicker";
             this.toTimePicker.Properties.AutoHeight = false;
             this.toTimePicker.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.toTimePicker.Size = new System.Drawing.Size(215, 49);
+            this.toTimePicker.Size = new System.Drawing.Size(143, 32);
             this.toTimePicker.TabIndex = 132;
             // 
             // gunaLabel6
             // 
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel6.Location = new System.Drawing.Point(749, 454);
+            this.gunaLabel6.Location = new System.Drawing.Point(499, 295);
+            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(148, 32);
+            this.gunaLabel6.Size = new System.Drawing.Size(100, 21);
             this.gunaLabel6.TabIndex = 133;
             this.gunaLabel6.Text = "Khách hàng";
             // 
@@ -340,9 +352,10 @@ namespace Hotel
             this.phoneEL.AutoSize = true;
             this.phoneEL.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneEL.ForeColor = System.Drawing.Color.Red;
-            this.phoneEL.Location = new System.Drawing.Point(975, 586);
+            this.phoneEL.Location = new System.Drawing.Point(650, 381);
+            this.phoneEL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phoneEL.Name = "phoneEL";
-            this.phoneEL.Size = new System.Drawing.Size(169, 25);
+            this.phoneEL.Size = new System.Drawing.Size(112, 15);
             this.phoneEL.TabIndex = 138;
             this.phoneEL.Text = "Error will be like this";
             // 
@@ -350,9 +363,10 @@ namespace Hotel
             // 
             this.gunaLabel10.AutoSize = true;
             this.gunaLabel10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel10.Location = new System.Drawing.Point(972, 502);
+            this.gunaLabel10.Location = new System.Drawing.Point(648, 326);
+            this.gunaLabel10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel10.Name = "gunaLabel10";
-            this.gunaLabel10.Size = new System.Drawing.Size(133, 28);
+            this.gunaLabel10.Size = new System.Drawing.Size(93, 19);
             this.gunaLabel10.TabIndex = 137;
             this.gunaLabel10.Text = "Số điện thoại";
             // 
@@ -369,13 +383,14 @@ namespace Hotel
             this.phoneTextBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.phoneTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.phoneTextBox.Location = new System.Drawing.Point(976, 535);
+            this.phoneTextBox.Location = new System.Drawing.Point(651, 348);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Padding = new System.Windows.Forms.Padding(5);
+            this.phoneTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.phoneTextBox.PasswordChar = '\0';
             this.phoneTextBox.Radius = 4;
             this.phoneTextBox.SelectedText = "";
-            this.phoneTextBox.Size = new System.Drawing.Size(369, 50);
+            this.phoneTextBox.Size = new System.Drawing.Size(246, 32);
             this.phoneTextBox.TabIndex = 136;
             this.phoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneTextBox_KeyPress);
             this.phoneTextBox.Leave += new System.EventHandler(this.phoneTextBox_Leave);
@@ -386,9 +401,10 @@ namespace Hotel
             this.fullnameEL.AutoSize = true;
             this.fullnameEL.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullnameEL.ForeColor = System.Drawing.Color.Red;
-            this.fullnameEL.Location = new System.Drawing.Point(14, 83);
+            this.fullnameEL.Location = new System.Drawing.Point(9, 54);
+            this.fullnameEL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fullnameEL.Name = "fullnameEL";
-            this.fullnameEL.Size = new System.Drawing.Size(169, 25);
+            this.fullnameEL.Size = new System.Drawing.Size(112, 15);
             this.fullnameEL.TabIndex = 141;
             this.fullnameEL.Text = "Error will be like this";
             // 
@@ -396,9 +412,10 @@ namespace Hotel
             // 
             this.gunaLabel8.AutoSize = true;
             this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel8.Location = new System.Drawing.Point(15, 3);
+            this.gunaLabel8.Location = new System.Drawing.Point(10, 2);
+            this.gunaLabel8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel8.Name = "gunaLabel8";
-            this.gunaLabel8.Size = new System.Drawing.Size(103, 28);
+            this.gunaLabel8.Size = new System.Drawing.Size(71, 19);
             this.gunaLabel8.TabIndex = 140;
             this.gunaLabel8.Text = "Họ và Tên";
             this.gunaLabel8.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -414,14 +431,13 @@ namespace Hotel
             this.fullnameTextBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.fullnameTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.fullnameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fullnameTextBox.Location = new System.Drawing.Point(12, 33);
-            this.fullnameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fullnameTextBox.Location = new System.Drawing.Point(8, 21);
             this.fullnameTextBox.Name = "fullnameTextBox";
-            this.fullnameTextBox.Padding = new System.Windows.Forms.Padding(8);
+            this.fullnameTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.fullnameTextBox.PasswordChar = '\0';
             this.fullnameTextBox.Radius = 4;
             this.fullnameTextBox.SelectedText = "";
-            this.fullnameTextBox.Size = new System.Drawing.Size(508, 52);
+            this.fullnameTextBox.Size = new System.Drawing.Size(339, 34);
             this.fullnameTextBox.TabIndex = 139;
             this.fullnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fullnameTextBox_KeyPress);
             this.fullnameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.fullnameTextBox_Validating);
@@ -431,9 +447,10 @@ namespace Hotel
             this.idEL.AutoSize = true;
             this.idEL.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idEL.ForeColor = System.Drawing.Color.Red;
-            this.idEL.Location = new System.Drawing.Point(15, 188);
+            this.idEL.Location = new System.Drawing.Point(10, 122);
+            this.idEL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idEL.Name = "idEL";
-            this.idEL.Size = new System.Drawing.Size(169, 25);
+            this.idEL.Size = new System.Drawing.Size(112, 15);
             this.idEL.TabIndex = 144;
             this.idEL.Text = "Error will be like this";
             // 
@@ -441,9 +458,10 @@ namespace Hotel
             // 
             this.gunaLabel11.AutoSize = true;
             this.gunaLabel11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel11.Location = new System.Drawing.Point(13, 106);
+            this.gunaLabel11.Location = new System.Drawing.Point(9, 69);
+            this.gunaLabel11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel11.Name = "gunaLabel11";
-            this.gunaLabel11.Size = new System.Drawing.Size(139, 28);
+            this.gunaLabel11.Size = new System.Drawing.Size(103, 19);
             this.gunaLabel11.TabIndex = 143;
             this.gunaLabel11.Text = "CMND / CCCD";
             this.gunaLabel11.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -459,14 +477,13 @@ namespace Hotel
             this.idTexBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.idTexBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.idTexBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.idTexBox.Location = new System.Drawing.Point(12, 137);
-            this.idTexBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.idTexBox.Location = new System.Drawing.Point(8, 89);
             this.idTexBox.Name = "idTexBox";
-            this.idTexBox.Padding = new System.Windows.Forms.Padding(8);
+            this.idTexBox.Padding = new System.Windows.Forms.Padding(5);
             this.idTexBox.PasswordChar = '\0';
             this.idTexBox.Radius = 4;
             this.idTexBox.SelectedText = "";
-            this.idTexBox.Size = new System.Drawing.Size(508, 52);
+            this.idTexBox.Size = new System.Drawing.Size(339, 34);
             this.idTexBox.TabIndex = 142;
             this.idTexBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idTexBox_KeyPress);
             this.idTexBox.Validating += new System.ComponentModel.CancelEventHandler(this.idTexBox_Validating);
@@ -485,8 +502,7 @@ namespace Hotel
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.Image = null;
             this.deleteButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.deleteButton.Location = new System.Drawing.Point(1129, 844);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteButton.Location = new System.Drawing.Point(753, 549);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.deleteButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -494,7 +510,7 @@ namespace Hotel
             this.deleteButton.OnHoverImage = null;
             this.deleteButton.OnPressedColor = System.Drawing.Color.Black;
             this.deleteButton.Radius = 4;
-            this.deleteButton.Size = new System.Drawing.Size(157, 49);
+            this.deleteButton.Size = new System.Drawing.Size(105, 32);
             this.deleteButton.TabIndex = 146;
             this.deleteButton.Text = "Hủy phòng";
             this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -514,7 +530,8 @@ namespace Hotel
             this.takePicButton.ForeColor = System.Drawing.Color.White;
             this.takePicButton.Image = null;
             this.takePicButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.takePicButton.Location = new System.Drawing.Point(758, 745);
+            this.takePicButton.Location = new System.Drawing.Point(504, 488);
+            this.takePicButton.Margin = new System.Windows.Forms.Padding(2);
             this.takePicButton.Name = "takePicButton";
             this.takePicButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.takePicButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -522,7 +539,7 @@ namespace Hotel
             this.takePicButton.OnHoverImage = null;
             this.takePicButton.OnPressedColor = System.Drawing.Color.Black;
             this.takePicButton.Radius = 4;
-            this.takePicButton.Size = new System.Drawing.Size(200, 49);
+            this.takePicButton.Size = new System.Drawing.Size(133, 32);
             this.takePicButton.TabIndex = 147;
             this.takePicButton.Text = "Upload";
             this.takePicButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -536,9 +553,10 @@ namespace Hotel
             this.infoLockPanel.Controls.Add(this.idEL);
             this.infoLockPanel.Controls.Add(this.fullnameEL);
             this.infoLockPanel.Controls.Add(this.gunaLabel11);
-            this.infoLockPanel.Location = new System.Drawing.Point(964, 600);
+            this.infoLockPanel.Location = new System.Drawing.Point(643, 390);
+            this.infoLockPanel.Margin = new System.Windows.Forms.Padding(2);
             this.infoLockPanel.Name = "infoLockPanel";
-            this.infoLockPanel.Size = new System.Drawing.Size(543, 238);
+            this.infoLockPanel.Size = new System.Drawing.Size(362, 155);
             this.infoLockPanel.TabIndex = 148;
             // 
             // findPhoneButton
@@ -555,7 +573,8 @@ namespace Hotel
             this.findPhoneButton.ForeColor = System.Drawing.Color.White;
             this.findPhoneButton.Image = null;
             this.findPhoneButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.findPhoneButton.Location = new System.Drawing.Point(1360, 535);
+            this.findPhoneButton.Location = new System.Drawing.Point(907, 348);
+            this.findPhoneButton.Margin = new System.Windows.Forms.Padding(2);
             this.findPhoneButton.Name = "findPhoneButton";
             this.findPhoneButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.findPhoneButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -563,7 +582,7 @@ namespace Hotel
             this.findPhoneButton.OnHoverImage = null;
             this.findPhoneButton.OnPressedColor = System.Drawing.Color.Black;
             this.findPhoneButton.Radius = 4;
-            this.findPhoneButton.Size = new System.Drawing.Size(124, 49);
+            this.findPhoneButton.Size = new System.Drawing.Size(83, 32);
             this.findPhoneButton.TabIndex = 150;
             this.findPhoneButton.Text = "Tìm";
             this.findPhoneButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -573,52 +592,84 @@ namespace Hotel
             // 
             this.gunaLabel9.AutoSize = true;
             this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel9.Location = new System.Drawing.Point(753, 504);
+            this.gunaLabel9.Location = new System.Drawing.Point(502, 328);
+            this.gunaLabel9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel9.Name = "gunaLabel9";
-            this.gunaLabel9.Size = new System.Drawing.Size(49, 28);
+            this.gunaLabel9.Size = new System.Drawing.Size(34, 19);
             this.gunaLabel9.TabIndex = 151;
             this.gunaLabel9.Text = "Ảnh";
-            // 
-            // picPicture
-            // 
-            this.picPicture.BaseColor = System.Drawing.Color.White;
-            this.picPicture.Image = global::Hotel.Properties.Resources.cleaning_staff4;
-            this.picPicture.Location = new System.Drawing.Point(758, 535);
-            this.picPicture.Name = "picPicture";
-            this.picPicture.Size = new System.Drawing.Size(200, 200);
-            this.picPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPicture.TabIndex = 135;
-            this.picPicture.TabStop = false;
-            this.picPicture.UseTransfarantBackground = false;
             // 
             // gunaLabel12
             // 
             this.gunaLabel12.AutoSize = true;
             this.gunaLabel12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel12.Location = new System.Drawing.Point(738, 173);
+            this.gunaLabel12.Location = new System.Drawing.Point(492, 112);
+            this.gunaLabel12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel12.Name = "gunaLabel12";
-            this.gunaLabel12.Size = new System.Drawing.Size(138, 32);
+            this.gunaLabel12.Size = new System.Drawing.Size(89, 21);
             this.gunaLabel12.TabIndex = 152;
             this.gunaLabel12.Text = "Giá phòng: ";
             // 
             // pricePerHoursLabel
             // 
-            this.pricePerHoursLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pricePerHoursLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pricePerHoursLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.pricePerHoursLabel.Location = new System.Drawing.Point(867, 169);
+            this.pricePerHoursLabel.Location = new System.Drawing.Point(578, 110);
+            this.pricePerHoursLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pricePerHoursLabel.Name = "pricePerHoursLabel";
-            this.pricePerHoursLabel.Size = new System.Drawing.Size(447, 43);
+            this.pricePerHoursLabel.Size = new System.Drawing.Size(298, 28);
             this.pricePerHoursLabel.TabIndex = 153;
             this.pricePerHoursLabel.Text = "0đ";
             this.pricePerHoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // showQRCodeButton
+            // 
+            this.showQRCodeButton.Animated = true;
+            this.showQRCodeButton.AnimationHoverSpeed = 0.07F;
+            this.showQRCodeButton.AnimationSpeed = 0.03F;
+            this.showQRCodeButton.BackColor = System.Drawing.Color.Transparent;
+            this.showQRCodeButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.showQRCodeButton.BorderColor = System.Drawing.Color.Black;
+            this.showQRCodeButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.showQRCodeButton.FocusedColor = System.Drawing.Color.Empty;
+            this.showQRCodeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showQRCodeButton.ForeColor = System.Drawing.Color.White;
+            this.showQRCodeButton.Image = null;
+            this.showQRCodeButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.showQRCodeButton.Location = new System.Drawing.Point(907, 143);
+            this.showQRCodeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.showQRCodeButton.Name = "showQRCodeButton";
+            this.showQRCodeButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.showQRCodeButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.showQRCodeButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.showQRCodeButton.OnHoverImage = null;
+            this.showQRCodeButton.OnPressedColor = System.Drawing.Color.Black;
+            this.showQRCodeButton.Radius = 4;
+            this.showQRCodeButton.Size = new System.Drawing.Size(83, 32);
+            this.showQRCodeButton.TabIndex = 154;
+            this.showQRCodeButton.Text = "QR code";
+            this.showQRCodeButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.showQRCodeButton.Click += new System.EventHandler(this.showQRCodeButton_Click);
+            // 
+            // picPicture
+            // 
+            this.picPicture.BaseColor = System.Drawing.Color.White;
+            this.picPicture.Image = global::Hotel.Properties.Resources.cleaning_staff5;
+            this.picPicture.InitialImage = global::Hotel.Properties.Resources.cleaning_staff6;
+            this.picPicture.Location = new System.Drawing.Point(505, 351);
+            this.picPicture.Name = "picPicture";
+            this.picPicture.Size = new System.Drawing.Size(130, 130);
+            this.picPicture.TabIndex = 155;
+            this.picPicture.TabStop = false;
+            // 
             // RoomsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1519, 1084);
+            this.ClientSize = new System.Drawing.Size(1013, 690);
+            this.Controls.Add(this.picPicture);
+            this.Controls.Add(this.showQRCodeButton);
             this.Controls.Add(this.pricePerHoursLabel);
             this.Controls.Add(this.gunaLabel12);
             this.Controls.Add(this.gunaLabel9);
@@ -628,7 +679,6 @@ namespace Hotel
             this.Controls.Add(this.phoneEL);
             this.Controls.Add(this.gunaLabel10);
             this.Controls.Add(this.phoneTextBox);
-            this.Controls.Add(this.picPicture);
             this.Controls.Add(this.gunaLabel6);
             this.Controls.Add(this.toTimePicker);
             this.Controls.Add(this.fromTimePicker);
@@ -647,9 +697,11 @@ namespace Hotel
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.infoLockPanel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RoomsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "      ";
+            this.Load += new System.EventHandler(this.RoomsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fromTimePicker.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimePicker.Properties)).EndInit();
             this.infoLockPanel.ResumeLayout(false);
@@ -680,7 +732,6 @@ namespace Hotel
         private DevExpress.XtraEditors.TimeEdit fromTimePicker;
         private DevExpress.XtraEditors.TimeEdit toTimePicker;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
-        private Guna.UI.WinForms.GunaCirclePictureBox picPicture;
         private Guna.UI.WinForms.GunaLabel phoneEL;
         private Guna.UI.WinForms.GunaLabel gunaLabel10;
         private Guna.UI.WinForms.GunaTextBox phoneTextBox;
@@ -697,5 +748,7 @@ namespace Hotel
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
         private Guna.UI.WinForms.GunaLabel gunaLabel12;
         private Guna.UI.WinForms.GunaLabel pricePerHoursLabel;
+        private Guna.UI.WinForms.GunaButton showQRCodeButton;
+        private Guna.UI.WinForms.GunaPictureBox picPicture;
     }
 }
