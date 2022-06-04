@@ -57,10 +57,15 @@ namespace Hotel
         }
         BookingDB order = new BookingDB();
         ManagerDB user = new ManagerDB();
+        StaffDB staff = new StaffDB();
+        RoomDB room = new RoomDB();
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
             this.loadData();
+            orderTodayLabel.Text = room.countRoom().ToString();
+            //revenueTodayLabel.Text = order.getCountRevenue().ToString();
+            totalStaffLabel.Text = (staff.countUser()+ user.countUser()).ToString();
         }
 
         private void loadData()

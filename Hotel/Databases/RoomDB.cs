@@ -55,7 +55,10 @@ namespace Hotel.Databases
         {
             return this.executeCountQuery($"SELECT COUNT(*) FROM {tableName}");
         }
-
+        public int countRoom()
+        {
+            return this.executeCountQuery($"SELECT COUNT(*) FROM {tableName} LEFT JOIN booking ON room.room_id = booking.room_id WHERE booking.booking_id IS NOT NULL");
+        }
         public bool delete(int id)
         {
             return this.executeQuery($"DELETE FROM {tableName} WHERE room_id = {id}");

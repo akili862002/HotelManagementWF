@@ -55,7 +55,7 @@ namespace Hotel
 
         private void checkoutButton_Click(object sender, EventArgs e)
         {
-            BillDB db = new BillDB();
+            /*BillDB db = new BillDB();
             BillEntity bill = new BillEntity();
             bill
                 .setCustomerPay(this.price)
@@ -65,7 +65,7 @@ namespace Hotel
             if (db.create(bill)) {
                 MessageBox.Show("Thanh toán thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
-            };
+            };*/
         }
     }
 }
