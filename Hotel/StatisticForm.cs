@@ -57,9 +57,11 @@ namespace Hotel
             DataTable dt = new DataTable();
             db.getAllOrdersAdapter(
                 @"
-                    order_item.order_item_id  as [Mã đơn],
-                    FORMAT(bill.total_price, 'c', 'vi-VN'),
-                    [order_item].created_at as [Tạo lúc]
+                    [order_item].order_item_id as [Mã đơn],
+                    DATEDIFF(hour, booking.created_at, booking.expire_at)*room.price_per_hour AS [Tổng tiền],
+                    CASE WHEN bill.booking_id IS NULL THEN N'Chưa tính tiền' ELSE N'Đã thanh toán' END AS [Tình trạng], 
+                    [order_item].created_at as [thoi gian thuê]
+
                 "
                 ).Fill(dt);
             this.orderTable.DataSource = dt;

@@ -64,7 +64,7 @@ namespace Hotel
         {
             this.loadData();
             orderTodayLabel.Text = room.countRoom().ToString();
-            //revenueTodayLabel.Text = order.getCountRevenue().ToString();
+            revenueTodayLabel.Text = order.getCountRevenue().ToString();
             totalStaffLabel.Text = (staff.countUser()+ user.countUser()).ToString();
         }
 

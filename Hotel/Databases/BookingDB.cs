@@ -71,7 +71,8 @@ namespace Hotel.Databases
         }
         public int getCountRevenue()
         {
-            return executeCountQuery("SELECT dbo.sum_revenue_today()");
+            return executeCountQuery("SELECT SUM(DATEDIFF(hour, booking.created_at, booking.expire_at) * room.price_per_hour) " +
+                "FROM[booking] INNER JOIN room ON booking.room_id = room.room_id");
         }
         public int getCountCost()
         {
@@ -86,6 +87,7 @@ namespace Hotel.Databases
                 FROM [order_item]
                 JOIN booking ON order_item.booking_id = booking.booking_id
                 LEFT JOIN bill ON booking.booking_id = bill.booking_id
+                INNER JOIN room ON booking.room_id = room.room_id
                 ORDER BY [order_item].created_at DESC
             ");
             return this.executeAdapterCommand(command);
