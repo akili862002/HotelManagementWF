@@ -71,6 +71,8 @@ namespace Hotel.Databases
         }
         public int getCountRevenue()
         {
+            return executeCountQuery("SELECT SUM(DATEDIFF(hour, booking.created_at, booking.expire_at) * room.price_per_hour) " +
+                "FROM[booking] INNER JOIN room ON booking.room_id = room.room_id");
             return executeCountQuery("SELECT SUM(total_price) FROM bill");
         }
         public int getCountCost()
@@ -83,10 +85,11 @@ namespace Hotel.Databases
             SqlCommand command = new SqlCommand($@"
                 SELECT	
                     {selectString}
-                FROM booking
+                FROM [order_item]
+                JOIN booking ON order_item.booking_id = booking.booking_id
                 LEFT JOIN bill ON booking.booking_id = bill.booking_id
-                JOIN [user] ON [user].id = booking.booking_id
-                ORDER BY [bill].created_at DESC
+                INNER JOIN room ON booking.room_id = room.room_id
+                ORDER BY [order_item].created_at DESC
             ");
             return this.executeAdapterCommand(command);
         }

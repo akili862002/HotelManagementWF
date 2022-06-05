@@ -75,6 +75,9 @@ namespace Hotel
         private void Dashboard_Load(object sender, EventArgs e)
         {
             this.loadData();
+            orderTodayLabel.Text = room.countRoom().ToString();
+            revenueTodayLabel.Text = order.getCountRevenue().ToString();
+            totalStaffLabel.Text = (staff.countUser()+ user.countUser()).ToString();
         }
 
         private void loadData()

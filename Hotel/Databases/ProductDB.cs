@@ -1,4 +1,5 @@
 ﻿using Hotel.Entities;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Hotel.Databases
@@ -38,7 +39,12 @@ namespace Hotel.Databases
         {
             return this.executeQuery($"DELETE FROM {table} WHERE product_id = {id}");
         }
-
+        public SqlDataAdapter getStatisticsAdapter()
+        {
+            SqlCommand command = new SqlCommand("statistic_by_product");
+            command.CommandType = CommandType.StoredProcedure;
+            return this.executeAdapterCommand(command);
+        }
         public bool update(int id, ProductEntity product)
         {
             SqlCommand cmd = new SqlCommand();

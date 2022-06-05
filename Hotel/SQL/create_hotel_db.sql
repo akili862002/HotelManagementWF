@@ -135,6 +135,15 @@ END
 GO
 
 
+CREATE OR ALTER PROCEDURE statistic_by_product
+AS
+	SELECT TOP 10 product.product_id, product.name, SUM(product.price * order_item.quantity) as [Total price]
+	FROM 
+		order_item
+		JOIN [product] ON order_item.product_id = product.product_id
+	GROUP BY product.product_id, product.name
+	ORDER BY [Total price] DESC
+GO
 					-----------------------------------
 ----------------------------------- INT DATA -----------------------------------
 					-----------------------------------

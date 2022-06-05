@@ -10,3 +10,4 @@ namespace Hotel.Entities
         public DateTime created_at;
     }
 }
+
