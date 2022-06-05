@@ -67,11 +67,11 @@ namespace Hotel.Databases
         }
         public int getCountOder()
         {
-            return executeCountQuery("SELECT dbo.count_order_today()");
+            return executeCountQuery("SELECT COUNT(*) FROM booking  LEFT JOIN bill ON booking.booking_id = bill.booking_id WHERE bill.booking_id IS NULL ");
         }
         public int getCountRevenue()
         {
-            return executeCountQuery("SELECT dbo.sum_revenue_today()");
+            return executeCountQuery("SELECT SUM(total_price) FROM bill");
         }
         public int getCountCost()
         {

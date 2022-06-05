@@ -187,6 +187,13 @@
     <Compile Include="QRCodeForm.Designer.cs">
       <DependentUpon>QRCodeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleGenerator.cs" />
     <Compile Include="StaffsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QRCodeForm.resx">
       <DependentUpon>QRCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffsForm.resx">
       <DependentUpon>StaffsForm.cs</DependentUpon>
@@ -336,6 +346,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\schedule %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

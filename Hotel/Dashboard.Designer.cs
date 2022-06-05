@@ -55,6 +55,7 @@ namespace Hotel
             this.tablesButton = new Guna.UI.WinForms.GunaTileButton();
             this.customersButton = new Guna.UI.WinForms.GunaTileButton();
             this.statisticButton = new Guna.UI.WinForms.GunaTileButton();
+            this.scheduleButton = new Guna.UI.WinForms.GunaTileButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).BeginInit();
             this.gunaGradient2Panel1.SuspendLayout();
@@ -80,7 +81,7 @@ namespace Hotel
             this.panel1.Controls.Add(this.welcomeUserLabel);
             this.panel1.Controls.Add(this.avatarPicture);
             this.panel1.Location = new System.Drawing.Point(-2, -3);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1153, 57);
             this.panel1.TabIndex = 16;
@@ -101,7 +102,7 @@ namespace Hotel
             this.logoutButton.Image = null;
             this.logoutButton.ImageSize = new System.Drawing.Size(20, 20);
             this.logoutButton.Location = new System.Drawing.Point(1037, 15);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.logoutButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -131,7 +132,7 @@ namespace Hotel
             this.avatarPicture.BaseColor = System.Drawing.Color.White;
             this.avatarPicture.Image = global::Hotel.Properties.Resources.logo1;
             this.avatarPicture.Location = new System.Drawing.Point(0, 0);
-            this.avatarPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.avatarPicture.Margin = new System.Windows.Forms.Padding(2);
             this.avatarPicture.Name = "avatarPicture";
             this.avatarPicture.Size = new System.Drawing.Size(65, 66);
             this.avatarPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -183,7 +184,7 @@ namespace Hotel
             this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
             this.gunaGradient2Panel1.Location = new System.Drawing.Point(16, 132);
-            this.gunaGradient2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaGradient2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
             this.gunaGradient2Panel1.Radius = 4;
             this.gunaGradient2Panel1.Size = new System.Drawing.Size(249, 96);
@@ -194,7 +195,7 @@ namespace Hotel
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = global::Hotel.Properties.Resources.calendar1;
             this.gunaPictureBox2.Location = new System.Drawing.Point(188, 28);
-            this.gunaPictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaPictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
             this.gunaPictureBox2.Size = new System.Drawing.Size(46, 48);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +211,7 @@ namespace Hotel
             this.gunaGradient2Panel2.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
             this.gunaGradient2Panel2.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
             this.gunaGradient2Panel2.Location = new System.Drawing.Point(289, 132);
-            this.gunaGradient2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaGradient2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.gunaGradient2Panel2.Name = "gunaGradient2Panel2";
             this.gunaGradient2Panel2.Radius = 4;
             this.gunaGradient2Panel2.Size = new System.Drawing.Size(267, 96);
@@ -221,7 +222,7 @@ namespace Hotel
             this.gunaPictureBox3.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox3.Image = global::Hotel.Properties.Resources.wallet1;
             this.gunaPictureBox3.Location = new System.Drawing.Point(202, 18);
-            this.gunaPictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaPictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.gunaPictureBox3.Name = "gunaPictureBox3";
             this.gunaPictureBox3.Size = new System.Drawing.Size(53, 58);
             this.gunaPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -262,7 +263,7 @@ namespace Hotel
             this.gunaGradient2Panel4.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
             this.gunaGradient2Panel4.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
             this.gunaGradient2Panel4.Location = new System.Drawing.Point(580, 132);
-            this.gunaGradient2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaGradient2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.gunaGradient2Panel4.Name = "gunaGradient2Panel4";
             this.gunaGradient2Panel4.Radius = 4;
             this.gunaGradient2Panel4.Size = new System.Drawing.Size(263, 96);
@@ -273,7 +274,7 @@ namespace Hotel
             this.gunaPictureBox5.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox5.Image = global::Hotel.Properties.Resources.cleaning_staff;
             this.gunaPictureBox5.Location = new System.Drawing.Point(198, 18);
-            this.gunaPictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaPictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.gunaPictureBox5.Name = "gunaPictureBox5";
             this.gunaPictureBox5.Size = new System.Drawing.Size(53, 58);
             this.gunaPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -332,7 +333,7 @@ namespace Hotel
             this.managerButton.Image = global::Hotel.Properties.Resources.manager;
             this.managerButton.ImageSize = new System.Drawing.Size(52, 52);
             this.managerButton.Location = new System.Drawing.Point(866, 314);
-            this.managerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.managerButton.Margin = new System.Windows.Forms.Padding(2);
             this.managerButton.Name = "managerButton";
             this.managerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.managerButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -361,7 +362,7 @@ namespace Hotel
             this.staffManagerButton.Image = global::Hotel.Properties.Resources.staffs;
             this.staffManagerButton.ImageSize = new System.Drawing.Size(52, 52);
             this.staffManagerButton.Location = new System.Drawing.Point(579, 314);
-            this.staffManagerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.staffManagerButton.Margin = new System.Windows.Forms.Padding(2);
             this.staffManagerButton.Name = "staffManagerButton";
             this.staffManagerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.staffManagerButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -389,7 +390,7 @@ namespace Hotel
             this.menusButton.Image = global::Hotel.Properties.Resources.config;
             this.menusButton.ImageSize = new System.Drawing.Size(52, 52);
             this.menusButton.Location = new System.Drawing.Point(288, 314);
-            this.menusButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menusButton.Margin = new System.Windows.Forms.Padding(2);
             this.menusButton.Name = "menusButton";
             this.menusButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.menusButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -417,7 +418,7 @@ namespace Hotel
             this.tablesButton.Image = global::Hotel.Properties.Resources.room;
             this.tablesButton.ImageSize = new System.Drawing.Size(52, 52);
             this.tablesButton.Location = new System.Drawing.Point(13, 314);
-            this.tablesButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tablesButton.Margin = new System.Windows.Forms.Padding(2);
             this.tablesButton.Name = "tablesButton";
             this.tablesButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.tablesButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -446,7 +447,7 @@ namespace Hotel
             this.customersButton.Image = global::Hotel.Properties.Resources.customer;
             this.customersButton.ImageSize = new System.Drawing.Size(52, 52);
             this.customersButton.Location = new System.Drawing.Point(146, 435);
-            this.customersButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.customersButton.Margin = new System.Windows.Forms.Padding(2);
             this.customersButton.Name = "customersButton";
             this.customersButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.customersButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -475,7 +476,7 @@ namespace Hotel
             this.statisticButton.Image = global::Hotel.Properties.Resources.customer;
             this.statisticButton.ImageSize = new System.Drawing.Size(52, 52);
             this.statisticButton.Location = new System.Drawing.Point(439, 435);
-            this.statisticButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statisticButton.Margin = new System.Windows.Forms.Padding(2);
             this.statisticButton.Name = "statisticButton";
             this.statisticButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.statisticButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -488,12 +489,42 @@ namespace Hotel
             this.statisticButton.Text = "Thống kê";
             this.statisticButton.Click += new System.EventHandler(this.statisticButton_Click_1);
             // 
+            // scheduleButton
+            // 
+            this.scheduleButton.Animated = true;
+            this.scheduleButton.AnimationHoverSpeed = 0.07F;
+            this.scheduleButton.AnimationSpeed = 0.03F;
+            this.scheduleButton.BackColor = System.Drawing.Color.Transparent;
+            this.scheduleButton.BackgroundImage = global::Hotel.Properties.Resources.staffs2;
+            this.scheduleButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.scheduleButton.BorderColor = System.Drawing.Color.Black;
+            this.scheduleButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.scheduleButton.FocusedColor = System.Drawing.Color.Empty;
+            this.scheduleButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scheduleButton.ForeColor = System.Drawing.Color.White;
+            this.scheduleButton.Image = global::Hotel.Properties.Resources.schedule__2_;
+            this.scheduleButton.ImageSize = new System.Drawing.Size(52, 52);
+            this.scheduleButton.Location = new System.Drawing.Point(731, 435);
+            this.scheduleButton.Margin = new System.Windows.Forms.Padding(2);
+            this.scheduleButton.Name = "scheduleButton";
+            this.scheduleButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.scheduleButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.scheduleButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.scheduleButton.OnHoverImage = null;
+            this.scheduleButton.OnPressedColor = System.Drawing.Color.Black;
+            this.scheduleButton.Radius = 4;
+            this.scheduleButton.Size = new System.Drawing.Size(263, 98);
+            this.scheduleButton.TabIndex = 34;
+            this.scheduleButton.Text = "Chia ca";
+            this.scheduleButton.Click += new System.EventHandler(this.scheduleButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1150, 552);
+            this.Controls.Add(this.scheduleButton);
             this.Controls.Add(this.statisticButton);
             this.Controls.Add(this.customersButton);
             this.Controls.Add(this.managerButton);
@@ -506,7 +537,7 @@ namespace Hotel
             this.Controls.Add(this.menusButton);
             this.Controls.Add(this.tablesButton);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -555,5 +586,6 @@ namespace Hotel
         private Guna.UI.WinForms.GunaTileButton managerButton;
         private Guna.UI.WinForms.GunaTileButton customersButton;
         private Guna.UI.WinForms.GunaTileButton statisticButton;
+        private Guna.UI.WinForms.GunaTileButton scheduleButton;
     }
 }

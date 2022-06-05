@@ -35,7 +35,6 @@ namespace Hotel
             this.searchButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.staffsTable = new Guna.UI.WinForms.GunaDataGridView();
-            this.avatar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTextBox = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.deleteButton = new Guna.UI.WinForms.GunaButton();
@@ -63,6 +62,8 @@ namespace Hotel
             this.roleComboBox = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
             this.clearProductButton = new Guna.UI.WinForms.GunaButton();
+            this.qr_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qr_img = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.staffsTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@ namespace Hotel
             this.searchButton.Image = null;
             this.searchButton.ImageSize = new System.Drawing.Size(20, 20);
             this.searchButton.Location = new System.Drawing.Point(1126, 103);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.searchButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -133,7 +134,8 @@ namespace Hotel
             this.staffsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.staffsTable.ColumnHeadersHeight = 50;
             this.staffsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.avatar});
+            this.qr_code,
+            this.qr_img});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,17 +178,7 @@ namespace Hotel
             this.staffsTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.staffsTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.staffsTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffsTable_CellDoubleClick);
-            // 
-            // avatar
-            // 
-            this.avatar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.avatar.DataPropertyName = "avatar";
-            this.avatar.HeaderText = "avatar";
-            this.avatar.MinimumWidth = 8;
-            this.avatar.Name = "avatar";
-            this.avatar.ReadOnly = true;
-            this.avatar.Visible = false;
-            this.avatar.Width = 150;
+            this.staffsTable.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.staffsTable_CellFormatting);
             // 
             // searchTextBox
             // 
@@ -202,7 +194,7 @@ namespace Hotel
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchTextBox.Location = new System.Drawing.Point(942, 103);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.searchTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.searchTextBox.PasswordChar = '\0';
             this.searchTextBox.Radius = 4;
             this.searchTextBox.SelectedText = "";
@@ -311,7 +303,7 @@ namespace Hotel
             this.salaryTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.salaryTextBox.Location = new System.Drawing.Point(17, 526);
             this.salaryTextBox.Name = "salaryTextBox";
-            this.salaryTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.salaryTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.salaryTextBox.PasswordChar = '\0';
             this.salaryTextBox.Radius = 4;
             this.salaryTextBox.SelectedText = "";
@@ -369,7 +361,7 @@ namespace Hotel
             this.birthdatePicker.Radius = 4;
             this.birthdatePicker.Size = new System.Drawing.Size(306, 32);
             this.birthdatePicker.TabIndex = 4;
-            this.birthdatePicker.Text = "17 Tháng Năm 2022";
+            this.birthdatePicker.Text = "Tuesday, May 17, 2022";
             this.birthdatePicker.Value = new System.DateTime(2022, 5, 17, 14, 30, 22, 650);
             // 
             // gunaLabel8
@@ -396,7 +388,7 @@ namespace Hotel
             this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addressTextBox.Location = new System.Drawing.Point(18, 462);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.addressTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.addressTextBox.PasswordChar = '\0';
             this.addressTextBox.Radius = 4;
             this.addressTextBox.SelectedText = "";
@@ -451,7 +443,7 @@ namespace Hotel
             this.fullnameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fullnameTextBox.Location = new System.Drawing.Point(18, 290);
             this.fullnameTextBox.Name = "fullnameTextBox";
-            this.fullnameTextBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fullnameTextBox.Padding = new System.Windows.Forms.Padding(5);
             this.fullnameTextBox.PasswordChar = '\0';
             this.fullnameTextBox.Radius = 4;
             this.fullnameTextBox.SelectedText = "";
@@ -509,9 +501,9 @@ namespace Hotel
             this.passwordTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.passwordTextBox.Location = new System.Drawing.Point(18, 224);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.passwordTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.passwordTextBox.PasswordChar = '\0';
             this.passwordTextBox.Radius = 4;
             this.passwordTextBox.SelectedText = "";
@@ -545,9 +537,9 @@ namespace Hotel
             this.phoneTextBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.phoneTextBox.Location = new System.Drawing.Point(18, 157);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.phoneTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.phoneTextBox.PasswordChar = '\0';
             this.phoneTextBox.Radius = 4;
             this.phoneTextBox.SelectedText = "";
@@ -649,12 +641,31 @@ namespace Hotel
             this.clearProductButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clearProductButton.Click += new System.EventHandler(this.clearProductButton_Click);
             // 
+            // qr_code
+            // 
+            this.qr_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.qr_code.DataPropertyName = "qr_code";
+            this.qr_code.HeaderText = "QR code";
+            this.qr_code.MinimumWidth = 8;
+            this.qr_code.Name = "qr_code";
+            this.qr_code.ReadOnly = true;
+            this.qr_code.Visible = false;
+            this.qr_code.Width = 150;
+            // 
+            // qr_img
+            // 
+            this.qr_img.DataPropertyName = "qr_img";
+            this.qr_img.HeaderText = "QR code";
+            this.qr_img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.qr_img.Name = "qr_img";
+            this.qr_img.ReadOnly = true;
+            // 
             // StaffsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1205, 690);
+            this.ClientSize = new System.Drawing.Size(1205, 710);
             this.Controls.Add(this.clearProductButton);
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.gunaLabel11);
@@ -716,7 +727,6 @@ namespace Hotel
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaTextBox fullnameTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn avatar;
         private Guna.UI.WinForms.GunaLabel passwordEL;
         private Guna.UI.WinForms.GunaLabel phoneEL;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
@@ -728,5 +738,7 @@ namespace Hotel
         private Guna.UI.WinForms.GunaComboBox roleComboBox;
         private Guna.UI.WinForms.GunaLabel gunaLabel11;
         private Guna.UI.WinForms.GunaButton clearProductButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qr_code;
+        private System.Windows.Forms.DataGridViewImageColumn qr_img;
     }
 }

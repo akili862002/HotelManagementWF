@@ -84,7 +84,7 @@ namespace Hotel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác \n Hoặc bạn không có quyền truy cập vào!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

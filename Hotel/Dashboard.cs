@@ -1,6 +1,5 @@
 ﻿using Hotel.Databases;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace Hotel
@@ -11,6 +10,19 @@ namespace Hotel
         {
             InitializeComponent();
             this.welcomeUserLabel.Text = $"Xin chào";
+
+            if (Program.Global.staff != null)
+            {
+                this.staffManagerButton.Enabled = false;
+                this.managerButton.Enabled = false;
+            } else 
+            if (Program.Global.manager != null){
+                this.managerButton.Enabled = false;
+            } else
+            {
+                this.staffManagerButton.Enabled = true;
+                this.managerButton.Enabled = true;
+            }
         }
 
         private void tablesButton_Click(object sender, EventArgs e)
@@ -27,6 +39,8 @@ namespace Hotel
             this.Hide();
             Login login = new Login();
             login.Show();
+            Program.Global.staff = null;
+            Program.Global.manager = null;
         }
 
         private void menusButton_Click(object sender, EventArgs e)
@@ -56,7 +70,7 @@ namespace Hotel
             }
         }
         BookingDB order = new BookingDB();
-        ManagerDB user = new ManagerDB();
+        StaffDB user = new StaffDB();
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -65,10 +79,15 @@ namespace Hotel
 
         private void loadData()
         {
-            return;
-            orderTodayLabel.Text = order.getCountOder().ToString();
-            revenueTodayLabel.Text = order.getCountRevenue().ToString();
-            totalStaffLabel.Text = user.countUser().ToString();
+            try
+            {
+                orderTodayLabel.Text = order.getCountOder().ToString();
+                revenueTodayLabel.Text = Currency.formatPrice(long.Parse(order.getCountRevenue().ToString()));
+                totalStaffLabel.Text = user.countUser().ToString();
+            } catch
+            {
+
+            }
         }
 
         private void managerButton_Click(object sender, EventArgs e)
@@ -90,6 +109,14 @@ namespace Hotel
         private void statisticButton_Click_1(object sender, EventArgs e)
         {
             using (StatisticForm fm = new StatisticForm())
+            {
+                fm.ShowDialog();
+            }
+        }
+
+        private void scheduleButton_Click(object sender, EventArgs e)
+        {
+            using (ScheduleForm fm = new ScheduleForm())
             {
                 fm.ShowDialog();
             }

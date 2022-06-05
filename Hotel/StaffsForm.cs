@@ -1,5 +1,6 @@
 ﻿using Hotel.Databases;
 using Hotel.Entities;
+using QRCoder;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace Hotel
         public StaffsForm()
         {
             InitializeComponent();
+            this.staffsTable.RowTemplate.Height = 80;
         }
         private void StaffsForm_Load(object sender, EventArgs e)
         {
@@ -59,7 +61,8 @@ namespace Hotel
                             gender as [Giới Tính],
                             address as [Địa Chỉ],
                             salary as [Lương],
-                            CASE WHEN is_reception = 1 THEN N'Tiếp tân' ELSE N'Lao công' END as [Chức vụ]
+                            CASE WHEN is_reception = 1 THEN N'Tiếp tân' ELSE N'Lao công' END as [Chức vụ],
+                            qr_code
                         ",
                         this.searchTextBox.Text
                     )
@@ -282,6 +285,21 @@ namespace Hotel
                 return;
             }
             vali.normal();
+        }
+
+        private void staffsTable_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.staffsTable.Columns[e.ColumnIndex].Name == "qr_img")
+            {
+                string code = this?.staffsTable?.Rows[e.RowIndex]?.Cells["qr_code"]?.Value?.ToString();
+                if (code?.Length < 1) return;
+
+                QRCodeGenerator generator = new QRCodeGenerator();
+                var qr = generator.CreateQrCode(code, QRCodeGenerator.ECCLevel.H);
+                var c = new QRCode(qr);
+                Image img = c.GetGraphic(50);
+                e.Value = img;
+            }
         }
     }
 }

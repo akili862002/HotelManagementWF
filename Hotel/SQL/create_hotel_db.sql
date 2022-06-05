@@ -1,5 +1,5 @@
-﻿CREATE DATABASE Hotel
-GO
+﻿--CREATE DATABASE Hotel
+--GO
 
 USE Hotel
 GO
@@ -151,7 +151,6 @@ INSERT INTO manager (fullname, phone, password, birthdate, gender, address, sala
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Nguyễn Văn A', '0000000001', '123456', '2002-1-1', 'Nam', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Lý Trường An', '0000000002', '123456', '2002-1-1', 'Nam', 'Quan 1, Ho Chi Minh', 8000000, 0, 1)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Thào Thúy Hà', '0000000003', '123456', '2002-1-1', N'Nữ', 'Quan 2, Ho Chi Minh', 8000000, 0, 1)
-INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Dư Thùy Vân', '0000000004', '123456', '2002-1-1', N'Nữ', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)
 INSERT INTO staff (fullname, phone, password, birthdate, gender, address, salary, is_labor, is_reception) VALUES (N'Admin test', '0123456789', '123456', '2002-1-1', N'Nữ', 'Thu Duc, Ho Chi Minh', 8000000, 0, 1)
 
 ------- Staff.Labor

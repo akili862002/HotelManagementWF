@@ -1,4 +1,5 @@
 ﻿using Hotel.Entities;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,9 +32,9 @@ namespace Hotel.Databases
             string query = $"SELECT COUNT(*) FROM {table} WHERE phone = '{phone}'";
             return executeCountQuery(query) > 0;
         }
-        public SqlDataAdapter getAllAdapter(string select = "*", string search = "")
+        public SqlDataAdapter getAllAdapter(string select = "*", string search = "", string condition = "")
         {
-            string query = $"SELECT {select} FROM {table} WHERE 1 = 1 AND fullname LIKE N'%{search}%'";
+            string query = $"SELECT {select} FROM {table} WHERE 1 = 1 AND fullname LIKE N'%{search}%' {condition}";
             return this.executeAdapterQuery(query);
         }
 
@@ -93,11 +94,28 @@ namespace Hotel.Databases
             
             return staff;
         }
+        public List<StaffEntity> getAllList(string condition = "")
+        {
+            DataTable dt = new DataTable();
+            this.executeAdapterQuery($"SELECT staff_id, fullname, phone FROM {this.table} WHERE 1 = 1 {condition}").Fill(dt);
 
+            List<StaffEntity> result = new List<StaffEntity>();
+            foreach (DataRow row in dt.Rows)
+            {
+                StaffEntity staff = new StaffEntity()
+                {
+                    staff_id = row.Field<int>(0),
+                    fullname = row.Field<string>(1),
+                    phone = row.Field<string>(2),
+                };
+                result.Add(staff);
+            }
+            return result;
+        }
         public StaffEntity login(string phone, string password)
         {
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand($"SELECT  staff_id, fullname, phone, is_labor, is_reception FROM {table} WHERE phone = @phone AND password = @password");
+            SqlCommand cmd = new SqlCommand($"SELECT  staff_id, fullname, phone, is_labor, is_reception FROM {table} WHERE phone = @phone AND password = @password AND is_reception = 1");
             cmd.Parameters.AddWithValue("@phone", phone);
             cmd.Parameters.AddWithValue("@password", password);
 

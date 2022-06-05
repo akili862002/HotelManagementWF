@@ -70,7 +70,7 @@ namespace Hotel.Databases
         public ManagerEntity getById(int userid)
         {
             DataTable dt = new DataTable();
-            this.executeAdapterQuery($"SELECT manager_id, fullname, phone, avatar, is FROM {this.table}").Fill(dt);
+            this.executeAdapterQuery($"SELECT manager_id, fullname, phone, avatar FROM {this.table} WHERE user_id = {userid}").Fill(dt);
             DataRow row = dt.Rows[0];
             if (row == null) return null;
 
@@ -82,6 +82,25 @@ namespace Hotel.Databases
             };
             
             return manager;
+        }
+
+        public List<ManagerEntity> getAllList()
+        {
+            DataTable dt = new DataTable();
+            this.executeAdapterQuery($"SELECT manager_id, fullname, phone FROM {this.table}").Fill(dt);
+
+            List<ManagerEntity> result = new List<ManagerEntity>();
+            foreach (DataRow row in dt.Rows)
+            {
+                ManagerEntity manager = new ManagerEntity()
+                {
+                    manager_id = row.Field<int>(0),
+                    fullname = row.Field<string>(1),
+                    phone = row.Field<string>(2),
+                };
+                result.Add(manager);
+            }
+            return result;
         }
 
         public ManagerEntity login(string phone, string password)
